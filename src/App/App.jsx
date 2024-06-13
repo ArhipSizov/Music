@@ -1,5 +1,7 @@
+import { NavLink, Route, Routes } from "react-router-dom"
 import { useState, useEffect } from "react";
 import "./App.scss";
+import Error from "../Pages/Error/Error";
 
 function App() {
   useEffect(() => {
@@ -86,7 +88,11 @@ function App() {
         <div className="br6"></div>
         <div className="br7"></div>
       </div>
+      <Routes>
+      <Route path="*" element={<Error/>}/>
+      </Routes>
     </div>
+
   );
 }
 
