@@ -18,7 +18,7 @@ function App() {
       br5.className = "br5 anim51";
       br6.className = "br6 anim61";
       br7.className = "br7 anim71";
-    }, 500);
+    }, 400);
     setTimeout(() => {
       br1.className = "br1 anim12";
       br2.className = "br2 anim22";
@@ -27,7 +27,7 @@ function App() {
       br5.className = "br5 anim52";
       br6.className = "br6 anim62";
       br7.className = "br7 anim62";
-    }, 1000);
+    }, 800);
     setTimeout(() => {
       br1.className = "br1 anim13";
       br2.className = "br2 anim23";
@@ -36,7 +36,7 @@ function App() {
       br5.className = "br5 anim53";
       br6.className = "br6 anim63";
       br7.className = "br7 anim73";
-    }, 1500);
+    }, 1200);
     setTimeout(() => {
       br1.className = "br1 anim14";
       br2.className = "br2 anim24";
@@ -45,7 +45,7 @@ function App() {
       br5.className = "br5 anim54";
       br6.className = "br6 anim64";
       br7.className = "br7 anim74";
-    }, 2000);
+    }, 1600);
     setTimeout(() => {
       br1.className = "br1 anim15";
       br2.className = "br2 anim25";
@@ -54,7 +54,7 @@ function App() {
       br5.className = "br5 anim55";
       br6.className = "br6 anim65";
       br7.className = "br7 anim75";
-    }, 2500);
+    }, 2000);
     setTimeout(() => {
       br1.className = "br1 anim16";
       br2.className = "br2 anim26";
@@ -63,7 +63,7 @@ function App() {
       br5.className = "br5 anim56";
       br6.className = "br6 anim66";
       br7.className = "br7 anim76";
-    }, 3000);
+    }, 2400);
     setTimeout(() => {
       br1.className = "br1 anim17";
       br2.className = "br2 anim27";
@@ -72,7 +72,7 @@ function App() {
       br5.className = "br5 anim57";
       br6.className = "br6 anim67";
       br7.className = "br7 anim77";
-    }, 3500);
+    }, 2800);
   }, []);
 
   return (
