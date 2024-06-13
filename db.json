@@ -89,18 +89,6 @@
           "equipment": [],
           "services": []
         }
-      },
-      "Booking": {
-        "anyNameMan": {
-          "name": "anyNameMan",
-          "time": "anyTime",
-          "hall": "anyHall",
-          "cost": "anyCost",
-          "number": "anyNumber",
-          "typePay": "paidByCard/paidOnSite",
-          "equipment": ["anyNameEqu"],
-          "services": ["anyNameServ"]
-        }
       }
     }
   }
