@@ -1,0 +1,107 @@
+{
+  "users": {
+    "anyKey": {
+      "name": "anyName",
+      "number": "anyNumber",
+      "email": "anyEmail",
+      "password": "anyPassword",
+      "reviews": [
+        {
+          "logo": "anyLogo",
+          "name": "anyNameOfCompany",
+          "data": "01.01.2001",
+          "review": "anyReview",
+          "area": "recordingStudio/rehearsalPoint",
+          "stars": "1-5"
+        }
+      ],
+      "Booking": {
+        "anyNameCompany": {
+          "name": "anyNameCompany",
+          "time": "anyTime",
+          "hall": "anyHall",
+          "cost": "anyCost",
+          "number": "anyNumber",
+          "typePay": "paidByCard/paidOnSite",
+          "equipment": ["anyNameEqu"],
+          "services": ["anyNameServ"]
+        }
+      },
+      "card": {
+        "anyKey": {
+          "key": "-NzxFqmKSe-MrBm4fhRA",
+          "payCart": "1234123412341234",
+          "payDate": "01.12",
+          "CVV": "756"
+        }
+      }
+    }
+  },
+  "companies": {
+    "anyNameCompany": {
+      "name": "anyName",
+      "logo": "anyLogo",
+      "number": "anyNumber",
+      "location": "anyLocation",
+      "square": "anyLitlSquare-200",
+      "shortDescription": "anyShortDescription",
+      "description": "anyDescription",
+      "area": "recordingStudio/rehearsalPoint",
+      "cost": "anyCost",
+      "services": ["soundRecording", "mixing", "mastering", "anything_else"],
+      "facilities": ["Wi-Fi", "parking", "toilet", "anything_else"],
+      "reviews": [
+        {
+          "photo": "anyPhoto",
+          "name": "anyName",
+          "data": "01.01.2001",
+          "review": "anyReview",
+          "stars": "1-5"
+        },
+        {
+          "photo": "anyPhoto",
+          "name": "anyName2",
+          "data": "01.01.2010",
+          "review": "anyReview2",
+          "stars": "4"
+        }
+      ],
+      "halls": {
+        "hall1": {
+          "photo": "anyPhoto",
+          "square": "anyLitlSquare",
+          "equipment": [
+            {
+              "name": "anyNameEqu",
+              "cost": "anyCost"
+            }
+          ],
+          "services": [
+            {
+              "name": "anyNameServ",
+              "cost": "anyCost"
+            }
+          ]
+        },
+        "hall2": {
+          "photo": "anyPhoto2",
+          "square": "200",
+          "equipment": [],
+          "services": []
+        }
+      },
+      "Booking": {
+        "anyNameMan": {
+          "name": "anyNameMan",
+          "time": "anyTime",
+          "hall": "anyHall",
+          "cost": "anyCost",
+          "number": "anyNumber",
+          "typePay": "paidByCard/paidOnSite",
+          "equipment": ["anyNameEqu"],
+          "services": ["anyNameServ"]
+        }
+      }
+    }
+  }
+}
