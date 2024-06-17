@@ -1,7 +1,9 @@
 import "./Loading.scss";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Loading() {
+  const navigate = useNavigate();
   useEffect(() => {
     const br1 = document.querySelector(".br1");
     const br2 = document.querySelector(".br2");
@@ -77,6 +79,9 @@ export default function Loading() {
     setTimeout(() => {
         name.className = "name name_on"
       }, 3500);
+      setTimeout(() => {
+        navigate("/login")
+      }, 5500);
   }, []);
   return (
     <div className="loading">

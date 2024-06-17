@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import Loading from "../Pages/Loading/Loading";
 import Search from "../Pages/Search/Search";
+import Recovery from "../Pages/Recovery/Recovery";
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/search" element={<Search/>}/>
+      <Route path="/recovery" element={<Recovery/>}/>
       <Route path="/" element={<Loading/>}/>
       <Route path="*" element={<Error/>}/>
       </Routes>
