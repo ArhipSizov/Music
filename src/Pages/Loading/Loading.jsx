@@ -1,100 +1,100 @@
 import "./Loading.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Loading() {
+  const [br1, setBr1] = useState("br1");
+  const [br2, setBr2] = useState("br2");
+  const [br3, setBr3] = useState("br3");
+  const [br4, setBr4] = useState("br4");
+  const [br5, setBr5] = useState("br5");
+  const [br6, setBr6] = useState("br6");
+  const [br7, setBr7] = useState("br7");
+  const [name, setName] = useState("name");
   const navigate = useNavigate();
   useEffect(() => {
-    const br1 = document.querySelector(".br1");
-    const br2 = document.querySelector(".br2");
-    const br3 = document.querySelector(".br3");
-    const br4 = document.querySelector(".br4");
-    const br5 = document.querySelector(".br5");
-    const br6 = document.querySelector(".br6");
-    const br7 = document.querySelector(".br7");
-    const name = document.querySelector(".name");
     setTimeout(() => {
-      br1.className = "br1 anim11";
-      br2.className = "br2 anim21";
-      br3.className = "br3 anim31";
-      br4.className = "br4 anim41";
-      br5.className = "br5 anim51";
-      br6.className = "br6 anim61";
-      br7.className = "br7 anim71";
+      setBr1("br1 anim11");
+      setBr2("br2 anim21");
+      setBr3("br3 anim31");
+      setBr4("br4 anim41");
+      setBr5("br5 anim51");
+      setBr6("br6 anim61");
+      setBr7("br7 anim71");
     }, 400);
     setTimeout(() => {
-      br1.className = "br1 anim12";
-      br2.className = "br2 anim22";
-      br3.className = "br3 anim32";
-      br4.className = "br4 anim42";
-      br5.className = "br5 anim52";
-      br6.className = "br6 anim62";
-      br7.className = "br7 anim62";
+      setBr1("br1 anim12");
+      setBr2("br2 anim22");
+      setBr3("br3 anim32");
+      setBr4("br4 anim42");
+      setBr5("br5 anim52");
+      setBr6("br6 anim62");
+      setBr7("br7 anim72");
     }, 800);
     setTimeout(() => {
-      br1.className = "br1 anim13";
-      br2.className = "br2 anim23";
-      br3.className = "br3 anim33";
-      br4.className = "br4 anim43";
-      br5.className = "br5 anim53";
-      br6.className = "br6 anim63";
-      br7.className = "br7 anim73";
+      setBr1("br1 anim13");
+      setBr2("br2 anim23");
+      setBr3("br3 anim33");
+      setBr4("br4 anim43");
+      setBr5("br5 anim53");
+      setBr6("br6 anim63");
+      setBr7("br7 anim73");
     }, 1200);
     setTimeout(() => {
-      br1.className = "br1 anim14";
-      br2.className = "br2 anim24";
-      br3.className = "br3 anim34";
-      br4.className = "br4 anim44";
-      br5.className = "br5 anim54";
-      br6.className = "br6 anim64";
-      br7.className = "br7 anim74";
+      setBr1("br1 anim14");
+      setBr2("br2 anim24");
+      setBr3("br3 anim34");
+      setBr4("br4 anim44");
+      setBr5("br5 anim54");
+      setBr6("br6 anim64");
+      setBr7("br7 anim74");
     }, 1600);
     setTimeout(() => {
-      br1.className = "br1 anim15";
-      br2.className = "br2 anim25";
-      br3.className = "br3 anim35";
-      br4.className = "br4 anim45";
-      br5.className = "br5 anim55";
-      br6.className = "br6 anim65";
-      br7.className = "br7 anim75";
+      setBr1("br1 anim15");
+      setBr2("br2 anim25");
+      setBr3("br3 anim35");
+      setBr4("br4 anim45");
+      setBr5("br5 anim55");
+      setBr6("br6 anim65");
+      setBr7("br7 anim75");
     }, 2000);
     setTimeout(() => {
-      br1.className = "br1 anim16";
-      br2.className = "br2 anim26";
-      br3.className = "br3 anim36";
-      br4.className = "br4 anim46";
-      br5.className = "br5 anim56";
-      br6.className = "br6 anim66";
-      br7.className = "br7 anim76";
+      setBr1("br1 anim16");
+      setBr2("br2 anim26");
+      setBr3("br3 anim36");
+      setBr4("br4 anim46");
+      setBr5("br5 anim56");
+      setBr6("br6 anim66");
+      setBr7("br7 anim76");
     }, 2400);
     setTimeout(() => {
-      br1.className = "br1 anim17";
-      br2.className = "br2 anim27";
-      br3.className = "br3 anim37";
-      br4.className = "br4 anim47";
-      br5.className = "br5 anim57";
-      br6.className = "br6 anim67";
-      br7.className = "br7 anim77";
+      setBr1("br1 anim17");
+      setBr2("br2 anim27");
+      setBr3("br3 anim37");
+      setBr4("br4 anim47");
+      setBr5("br5 anim57");
+      setBr6("br6 anim67");
+      setBr7("br7 anim77");
     }, 2800);
     setTimeout(() => {
-        name.className = "name name_on"
-      }, 3500);
-      setTimeout(() => {
-        navigate("/login")
-      }, 5500);
+      setName("name name_on");
+    }, 3500);
+    setTimeout(() => {
+      navigate("/login");
+    }, 5500);
   }, []);
   return (
     <div className="loading">
       <div className="logo_anim">
-        <div className="br1"></div>
-        <div className="br2"></div>
-        <div className="br3"></div>
-        <div className="br4"></div>
-        <div className="br5"></div>
-        <div className="br6"></div>
-        <div className="br7"></div>
+        <div className={br1}></div>
+        <div className={br2}></div>
+        <div className={br3}></div>
+        <div className={br4}></div>
+        <div className={br5}></div>
+        <div className={br6}></div>
+        <div className={br7}></div>
       </div>
-      <p className="name">music guide</p>
+      <p className={name}>music guide</p>
     </div>
   );
 }
