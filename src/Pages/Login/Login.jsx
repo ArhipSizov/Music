@@ -19,7 +19,7 @@ export default function Login() {
       <div className="login_but">
         <p>Войти</p>
       </div>
-      <NavLink className="register_but" to="/register">Регистрация</NavLink>
+      <NavLink className="register_but" to="/register1">Регистрация</NavLink>
     </div>
   );
 }
