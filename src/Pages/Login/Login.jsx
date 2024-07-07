@@ -1,9 +1,18 @@
 import "./Login.scss";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom"
 
 export default function Login() {
+
+    const [anim, setAnim] = useState("anim");
+    useEffect(() => {
+      setTimeout(() => {
+        setAnim("none")
+      }, 4000);
+    }, []);
   return (
     <div className="login">
+      <div className={anim}></div>
       <img className="logo" src="/logo.svg" alt="" />
       <p className="hello">Добро пожаловать!</p>
       <p className="login_text">Введите свои данные для входа в приложение</p>
@@ -15,7 +24,7 @@ export default function Login() {
         <img className="img" src="/password.svg" alt="" />
         <input className="input" type="text" placeholder="Пароль"/>
       </div>
-      <NavLink className="recovery" to="/recovery">Забыли пароль?</NavLink>
+      <NavLink className="recovery" to="/recovery1">Забыли пароль?</NavLink>
       <div className="login_but">
         <p>Войти</p>
       </div>

@@ -85,6 +85,7 @@ export default function Loading() {
   }, []);
   return (
     <div className="loading">
+      <div className="anim"></div>
       <div className="logo_anim">
         <div className={br1}></div>
         <div className={br2}></div>
