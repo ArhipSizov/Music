@@ -25,7 +25,7 @@ export default function Register2() {
   return (
     <div className="register2">
       <div className="hr_all">
-        <NavLink to="/login">
+        <NavLink to="/register1">
           <img src="/back.svg" alt="" />
         </NavLink>
         <div className="hr_div">

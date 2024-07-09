@@ -1,7 +1,16 @@
 import "./Register1.scss";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+// import { addUser } from "../../store/Slice";
 
 export default function Register1() {
+  const [email, setEmail] = useState("");
+
+  const dispatch = useDispatch();
+
+  // const addTask = () => dispatch(addUser(text));
   return (
     <div className="register1">
       <div className="hr_all">
@@ -19,7 +28,15 @@ export default function Register1() {
         <p className="question">Введите e-mail</p>
         <div className="input_all">
           <img className="img" src="/e_mail.svg" alt="" />
-          <input className="input" type="text" placeholder="e-mail" />
+          <input
+            // handleSubmit={addTask}
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            className="input"
+            type="email"
+            placeholder="e-mail"
+            required
+          />
         </div>
         <NavLink to="/register2">
           <div className="but">Регистрация</div>

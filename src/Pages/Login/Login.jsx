@@ -8,7 +8,7 @@ export default function Login() {
     useEffect(() => {
       setTimeout(() => {
         setAnim("none")
-      }, 4000);
+      }, 1500);
     }, []);
   return (
     <div className="login">
