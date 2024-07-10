@@ -1,4 +1,4 @@
-import { NavLink, Route, Routes } from "react-router-dom"
+import { NavLink, Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./App.scss";
 import Error from "../Pages/Error/Error";
@@ -15,26 +15,24 @@ import Loading from "../Pages/Loading/Loading";
 import Search from "../Pages/Search/Search";
 
 function App() {
-  
 
   return (
     <div className="all">
       <Routes>
-      <Route path="/register1" element={<Register1/>}/>
-      <Route path="/register2" element={<Register2/>}/>
-      <Route path="/register3" element={<Register3/>}/>
-      <Route path="/registerfinal" element={<RegisterFinal/>}/>
-      <Route path="/recovery1" element={<Recovery1/>}/>
-      <Route path="/recovery2" element={<Recovery2/>}/>
-      <Route path="/recovery3" element={<Recovery3/>}/>
-      <Route path="/recoveryfinal" element={<RecoveryFinal/>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/search" element={<Search/>}/>
-      <Route path="/" element={<Loading/>}/>
-      <Route path="*" element={<Error/>}/>
+        <Route path="/register1" element={<Register1 />} />
+        <Route path="/register2" element={<Register2 />} />
+        <Route path="/register3" element={<Register3 />} />
+        <Route path="/registerfinal" element={<RegisterFinal />} />
+        <Route path="/recovery1" element={<Recovery1 />} />
+        <Route path="/recovery2" element={<Recovery2 />} />
+        <Route path="/recovery3" element={<Recovery3 />} />
+        <Route path="/recoveryfinal" element={<RecoveryFinal />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/" element={<Loading />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
-
   );
 }
 

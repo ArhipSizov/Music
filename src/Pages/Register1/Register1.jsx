@@ -3,14 +3,19 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-// import { addUser } from "../../store/Slice";
+import { addUser } from "../../store/Slice";
 
 export default function Register1() {
+  if (window.location.href.indexOf("reload")==-1) {
+    window.location.replace(window.location.href+"?reload");
+}
+
+
   const [email, setEmail] = useState("");
 
   const dispatch = useDispatch();
 
-  // const addTask = () => dispatch(addUser(text));
+  const addTask = () => dispatch(addUser(email));
   return (
     <div className="register1">
       <div className="hr_all">
@@ -29,7 +34,6 @@ export default function Register1() {
         <div className="input_all">
           <img className="img" src="/e_mail.svg" alt="" />
           <input
-            // handleSubmit={addTask}
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             className="input"
@@ -38,7 +42,7 @@ export default function Register1() {
             required
           />
         </div>
-        <NavLink to="/register2">
+        <NavLink to="/register2"  onClick={addTask}>
           <div className="but">Регистрация</div>
         </NavLink>
         <p className="texst_link">
