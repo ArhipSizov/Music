@@ -25,7 +25,6 @@ export default function Register1() {
         <div className="hr_div">
           <hr className="hr_on" />
           <hr />
-          <hr />
         </div>
       </div>
       <div className="register_all">
@@ -42,7 +41,7 @@ export default function Register1() {
             required
           />
         </div>
-        <NavLink to="/register2"  onClick={addTask}>
+        <NavLink to="/register3"  onClick={addTask}>
           <div className="but">Регистрация</div>
         </NavLink>
         <p className="texst_link">

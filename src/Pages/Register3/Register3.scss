@@ -12,7 +12,7 @@
       display: flex;
       justify-content: space-between;
       hr {
-        width: 30%;
+        width: 47%;
         border-radius: 10px;
         background-color: #5912A0;
         border: none;
@@ -34,11 +34,16 @@
       font-weight: 400;
       font-size: 14px;
       margin-top: 5px;
-      .true{
-        color: #029908;
+      p{
+        transition: 0.2s;
+      }
+      .none{
+        display: block !important;
+        color: rgba(0, 0, 0, 0);
+        position: absolute;
       }
       .false{
-        color: #B30000;
+        color: #000000;
       }
     }
     .name {
@@ -71,7 +76,7 @@
         cursor: pointer;
       }
     }
-    .but {
+    .but, .butFalse {
       width: 100%;
       cursor: pointer;
       background-color: #421094;
@@ -83,6 +88,10 @@
       margin-bottom: 24px;
       font-size: 18px;
       font-weight: 500;
+    }
+    .butFalse{
+      background-color: #431094ce;
+      cursor: not-allowed
     }
     .texst_link {
       font-weight: 400;

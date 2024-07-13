@@ -18,6 +18,8 @@ export default function Register3(emailTry) {
   const [input1, setInput1] = useState("false");
   const [input2, setInput2] = useState("false");
   const [input3, setInput3] = useState("false");
+  const [but, setBut] = useState("none");
+  const [butFalse, setButFalse] = useState("butFalse");
   const [help, setHelp] = useState(0);
   const [email, setEmail] = useState();
 
@@ -32,7 +34,7 @@ export default function Register3(emailTry) {
 
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   // const db = firebaseApp.database();
-console.log(firebaseApp);
+  console.log(firebaseApp);
   async function addUser(userData) {
     const ref = db.ref("users").push();
     const newKey = ref.key;
@@ -66,7 +68,6 @@ console.log(firebaseApp);
   }
 
   function getRegisterData(event) {
-    if (input1 == "true" && input2 == "true" && input3 == "true") {
       event.preventDefault();
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, pasvord)
@@ -80,7 +81,6 @@ console.log(firebaseApp);
             .catch((e) => console.log(e));
         })
         .catch((e) => console.log(e));
-    }
     addUser();
   }
 
@@ -89,19 +89,29 @@ console.log(firebaseApp);
     if (pasvord.length < 8) {
       setInput1("false");
     } else {
-      setInput1("true");
+      setInput1("none");
     }
     if (pasvord.match(/[A-Z]/g) == null || pasvord.match(/[a-z]/g) == null) {
       setInput2("false");
     } else {
-      setInput2("true");
+      setInput2("none");
     }
     if (pasvord.length !== 0) {
       if (passLenght.length !== pasvord.length) {
-        setInput3("true");
+        setInput3("none");
+      } else {
+        setInput3("false");
       }
     } else {
       setInput3("false");
+    }
+
+    if (input1 == "none" && input2 == "none" && input3 == "none") {
+      setBut("but")
+      setButFalse("none")
+    }else{
+      setBut("none")
+      setButFalse("butFalse")
     }
   }, [pasvord]);
   return (
@@ -111,7 +121,6 @@ console.log(firebaseApp);
           <img src="/back.svg" alt="" />
         </NavLink>
         <div className="hr_div">
-          <hr className="hr_on" />
           <hr className="hr_on" />
           <hr className="hr_on" />
         </div>
@@ -141,10 +150,11 @@ console.log(firebaseApp);
           </div>
           <div className="params">
             <p className={input1}>Не менее 9 символов</p>
-            <p className={input2}>Строчные и заглавные буквы (A-z)</p>
+            <p className={input2}>Строчные и заглавные буквы</p>
             <p className={input3}>Цифры и спецсимволы (#, &, ! и т. п.)</p>
           </div>
-          <input className="but" type="submit" value="Подтвердить" />
+          <input className={but} type="submit" value="Подтвердить" />
+          <div className={butFalse}>Подтвердить</div>
         </form>
       </div>
     </div>

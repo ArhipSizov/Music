@@ -7,6 +7,8 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 export default function Login() {
   const navigate = useNavigate();
 
+  const [type, setType] = useState("true");
+
   const [email, setEmail] = useState("");
   const [pasvord, setPasvord] = useState("");
 
@@ -51,8 +53,14 @@ export default function Login() {
             value={pasvord}
             onChange={(e) => setPasvord(e.target.value)}
             className="input"
-            type="text"
+            type={type ? "password" : "text"}
             placeholder="Пароль"
+          />
+          <img
+            className="eye"
+            onClick={() => setType(!type)}
+            src={type ? "/eye.svg" : "/eye_open.svg"}
+            alt=""
           />
         </div>
 

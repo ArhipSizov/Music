@@ -1,4 +1,4 @@
-.register3 {
+.register32 {
   padding-top: 50px;
   font-family: "Raleway", sans-serif;
   background-color: #421094;
@@ -34,11 +34,8 @@
       font-weight: 400;
       font-size: 14px;
       margin-top: 5px;
-      .trye{
-        color: #029908;
-      }
       .false{
-        color: #B30000;
+        color: hsl(0, 0%, 0%);
       }
     }
     .name {
