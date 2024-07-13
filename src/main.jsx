@@ -7,7 +7,9 @@ import firebaseConfig from "../firebaseConfig";
 import { initializeApp } from "firebase/app";
 import { Provider } from "react-redux";
 import store from "./store";
+import firebase from "firebase/compat/app";
 
+firebase.initializeApp(firebaseConfig);
 initializeApp(firebaseConfig);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

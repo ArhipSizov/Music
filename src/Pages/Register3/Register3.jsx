@@ -10,6 +10,7 @@ import {
 import { useSelector } from "react-redux";
 import firebaseConfig from "../../../firebaseConfig";
 import firebase from "firebase/compat/app";
+import "firebase/compat/database";
 
 export default function Register3(emailTry) {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ export default function Register3(emailTry) {
   });
 
   const firebaseApp = firebase.initializeApp(firebaseConfig);
-  // const db = firebaseApp.database();
+  const db = firebaseApp.database();
   console.log(firebaseApp);
   async function addUser(userData) {
     const ref = db.ref("users").push();
@@ -43,12 +44,8 @@ export default function Register3(emailTry) {
       key: newKey,
       email: email,
       password: pasvord,
-      // country: country,
-      // name: firstName,
-      // street: street,
-      // city: city,
-      // lastName: lastName,
-      // nnumber: telephone,
+      name: "none",
+      number: "none",
     };
     await ref.set(dataWithKey);
     userDB(newKey);
@@ -60,11 +57,6 @@ export default function Register3(emailTry) {
       email: email,
     };
     let json = JSON.stringify(onjectUser);
-    const responce = await fetch("http://localhost:5173/comments", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(onjectUser),
-    });
   }
 
   function getRegisterData(event) {
