@@ -1,5 +1,7 @@
 import { NavLink, Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
 import "./App.scss";
 import Error from "../Pages/Error/Error";
 import Register1 from "../Pages/Register1/Register1";
@@ -12,9 +14,41 @@ import RecoveryFinal from "../Pages/RecoveryFinal/RecoveryFinal";
 import Login from "../Pages/Login/Login";
 import Loading from "../Pages/Loading/Loading";
 import Search from "../Pages/Search/Search";
+import Footer from "../Components/Footer/Footer";
+import Profile from "../Pages/Profile/Profile";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  const [user, setUser] = useState();
+  const auth = getAuth();
+  const navigate = useNavigate();
 
+  const [showNavFooter, setShowNavFooter] = useState(false);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (!currentUser) {
+        setShowNavFooter(false);
+        navigate("/login");
+        setUser({
+          email: null,
+          displayName: null,
+        });
+        console.log(showNavFooter);
+        return;
+      } else {
+        setShowNavFooter(true);
+      }
+      setUser({
+        displayName: currentUser.displayName,
+        email: currentUser.email,
+      });
+    });
+  }, []);
+
+  if (!user) {
+    return <h1>Загрузка...</h1>;
+  }
   return (
     <div className="all">
       <Routes>
@@ -27,9 +61,11 @@ function App() {
         <Route path="/recoveryfinal" element={<RecoveryFinal />} />
         <Route path="/login" element={<Login />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/" element={<Loading />} />
         <Route path="*" element={<Error />} />
       </Routes>
+      {showNavFooter && (<Footer />)}
     </div>
   );
 }

@@ -7,14 +7,10 @@ const slice = createSlice({
     },
     reducers:{
         addUser(state, action) {
-            console.log(state);
-            console.log(action.payload);
             state.email.push({
                 email: action.payload,
             })
         },
-        removeUser() {},
-        toggleUser() {},
     }
 })
 

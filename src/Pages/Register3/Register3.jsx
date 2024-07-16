@@ -35,7 +35,6 @@ export default function Register3(emailTry) {
 
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   const db = firebaseApp.database();
-  console.log(firebaseApp);
   async function addUser(userData) {
     const ref = db.ref("users").push();
     const newKey = ref.key;
@@ -44,8 +43,8 @@ export default function Register3(emailTry) {
       key: newKey,
       email: email,
       password: pasvord,
-      name: "none",
-      number: "none",
+      name: "Аноним",
+      number: "нету",
     };
     await ref.set(dataWithKey);
     userDB(newKey);
@@ -68,11 +67,9 @@ export default function Register3(emailTry) {
             displayName: null,
           })
             .then(() => {
-              navigate("/search");
+              navigate("/profile");
             })
-            .catch((e) => console.log(e));
         })
-        .catch((e) => console.log(e));
     addUser();
   }
 

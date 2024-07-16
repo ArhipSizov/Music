@@ -17,7 +17,7 @@ export default function Login() {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, pasvord)
       .then((user) => {
-        navigate("/search");
+        navigate("/profile");
       })
       .catch((e) => {
         setError(true);
@@ -44,7 +44,7 @@ export default function Login() {
             onChange={(e) => setEmail(e.target.value)}
             className="input"
             type="text"
-            placeholder="Телефон"
+            placeholder="e-mail"
           />
         </div>
         <div className="input_all">
@@ -64,7 +64,7 @@ export default function Login() {
           />
         </div>
 
-        <NavLink className="recovery" to="/recovery1">
+        <NavLink className="recovery" to="/recovery1Error">
           Забыли пароль?
         </NavLink>
         <input

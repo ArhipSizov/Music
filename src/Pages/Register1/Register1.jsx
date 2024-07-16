@@ -6,9 +6,6 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../../store/Slice";
 
 export default function Register1() {
-  if (window.location.href.indexOf("reload")==-1) {
-    window.location.replace(window.location.href+"?reload");
-}
 
 
   const [email, setEmail] = useState("");
