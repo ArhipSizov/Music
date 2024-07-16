@@ -74,7 +74,6 @@ export default function Register3(emailTry) {
 
   function conditionPassword() {
     setTimeout(() => {
-      console.log(1);
       const passLenght = pasvord.match(/[a-z0-9A-Z]/g);
       if (pasvord.length < 8) {
         setInput1("false");

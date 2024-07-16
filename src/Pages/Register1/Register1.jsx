@@ -2,17 +2,23 @@ import "./Register1.scss";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { addUser } from "../../store/Slice";
 
 export default function Register1() {
-
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
 
   const dispatch = useDispatch();
 
   const addTask = () => dispatch(addUser(email));
+
+  function name() {
+    navigate("/register3");
+    addTask();
+  }
   return (
     <div className="register1">
       <div className="hr_all">
@@ -24,7 +30,7 @@ export default function Register1() {
           <hr />
         </div>
       </div>
-      <div className="register_all">
+      <form onSubmit={name} className="register_all">
         <p className="name">Регистрация</p>
         <p className="question">Введите e-mail</p>
         <div className="input_all">
@@ -38,9 +44,7 @@ export default function Register1() {
             required
           />
         </div>
-        <NavLink to="/register3"  onClick={addTask}>
-          <div className="but">Регистрация</div>
-        </NavLink>
+        <input className="but" type="submit" value="Подтвердить"/>
         <p className="texst_link">
           {" "}
           Регистрируясь, вы соглашаетесь с нашими
@@ -50,7 +54,7 @@ export default function Register1() {
           </NavLink>
           и даете согласие на обработку персональных данных
         </p>
-      </div>
+      </form>
     </div>
   );
 }

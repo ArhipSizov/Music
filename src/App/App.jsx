@@ -35,7 +35,6 @@ function App() {
           email: null,
           displayName: null,
         });
-        console.log(showNavFooter);
         return;
       } else {
         setShowNavFooter(true);

@@ -10,7 +10,6 @@ export default function Profile() {
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
-        console.log(auth);
       if (!currentUser) {
         navigate("/login");
         setUser({
