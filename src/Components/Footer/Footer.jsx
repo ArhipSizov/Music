@@ -1,24 +1,15 @@
 import "./Footer.scss";
+import { useState } from "react";
+import FooterBlock from "../FooterBlock/FooterBlock";
+import FooterBlockArr from "./FooterBlock.json";
 
 export default function Footer() {
+  const [footerArr] = useState(FooterBlockArr);
   return (
     <div className="footer">
-        <div className="div">
-          <img className="img" src="Search.svg" alt="" />
-          <p className="text">Поиск</p>
-        </div>
-        <div className="div">
-          <img className="img" src="Orders.svg" alt="" />
-          <p className="text">Заказы</p>
-        </div>
-        <div className="div">
-          <img className="img_alt" src="Messages.svg" alt="" />
-          <p className="text">Сообщения</p>
-        </div>
-        <div className="div">
-          <img className="img" src="Profile.svg" alt="" />
-          <p className="text">Профиль</p>
-        </div>
-      </div>
+      {footerArr.map((item) => (
+        <FooterBlock {...item} key={item.id} />
+      ))}
+    </div>
   );
 }
