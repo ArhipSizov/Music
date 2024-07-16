@@ -29,7 +29,7 @@ function App() {
     onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
         setShowNavFooter(false);
-        navigate("/login");
+        navigate("/");
         setUser({
           email: null,
           displayName: null,
