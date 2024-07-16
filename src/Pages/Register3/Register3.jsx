@@ -59,51 +59,54 @@ export default function Register3(emailTry) {
   }
 
   function getRegisterData(event) {
-      event.preventDefault();
-      const auth = getAuth();
-      createUserWithEmailAndPassword(auth, email, pasvord)
-        .then(() => {
-          updateProfile(auth.currentUser, {
-            displayName: null,
-            email: null,
-          })
-            .then(() => {
-              navigate("/profile");
-            })
-        })
+    event.preventDefault();
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, pasvord).then(() => {
+      updateProfile(auth.currentUser, {
+        displayName: null,
+        email: null,
+      }).then(() => {
+        navigate("/profile");
+      });
+    });
     addUser();
   }
 
-  useEffect(() => {
-    const passLenght = pasvord.match(/[a-z0-9A-Z]/g);
-    if (pasvord.length < 8) {
-      setInput1("false");
-    } else {
-      setInput1("none");
-    }
-    if (pasvord.match(/[A-Z]/g) == null || pasvord.match(/[a-z]/g) == null) {
-      setInput2("false");
-    } else {
-      setInput2("none");
-    }
-    if (pasvord.length !== 0) {
-      if (passLenght.length !== pasvord.length) {
-        setInput3("none");
+  function conditionPassword() {
+    setTimeout(() => {
+      console.log(1);
+      const passLenght = pasvord.match(/[a-z0-9A-Z]/g);
+      if (pasvord.length < 8) {
+        setInput1("false");
+      } else {
+        setInput1("none");
+      }
+      if (pasvord.match(/[A-Z]/g) == null || pasvord.match(/[a-z]/g) == null) {
+        setInput2("false");
+      } else {
+        setInput2("none");
+      }
+      if (pasvord.length !== 0) {
+        if (passLenght.length !== pasvord.length) {
+          setInput3("none");
+        } else {
+          setInput3("false");
+        }
       } else {
         setInput3("false");
       }
-    } else {
-      setInput3("false");
-    }
-
+      conditionButton()
+    }, 1);
+  }
+  function conditionButton() {
     if (input1 == "none" && input2 == "none" && input3 == "none") {
-      setBut("but")
-      setButFalse("none")
-    }else{
-      setBut("none")
-      setButFalse("butFalse")
+      setBut("but");
+      setButFalse("none");
+    } else {
+      setBut("none");
+      setButFalse("butFalse");
     }
-  }, [pasvord]);
+  }
   return (
     <div className="register3">
       <div className="hr_all">
@@ -123,6 +126,7 @@ export default function Register3(emailTry) {
             <img className="img" src="/password.svg" alt="" />
 
             <input
+              onInput={conditionPassword()}
               required
               onChange={(e) => setPasvord(e.target.value)}
               value={pasvord}
