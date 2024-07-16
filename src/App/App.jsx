@@ -16,6 +16,7 @@ import Loading from "../Pages/Loading/Loading";
 import Search from "../Pages/Search/Search";
 import Footer from "../Components/Footer/Footer";
 import Profile from "../Pages/Profile/Profile";
+import Privacy from "../Pages/Privacy/Privacy";
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
         <Route path="/recoveryfinal" element={<RecoveryFinal />} />
         <Route path="/login" element={<Login />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/" element={<Loading />} />
         <Route path="*" element={<Error />} />

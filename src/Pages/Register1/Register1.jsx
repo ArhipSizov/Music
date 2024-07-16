@@ -44,7 +44,7 @@ export default function Register1() {
         <p className="texst_link">
           {" "}
           Регистрируясь, вы соглашаетесь с нашими
-          <NavLink className="link" to="">
+          <NavLink className="link" to="/privacy">
             {" "}
             Условиями использования{" "}
           </NavLink>

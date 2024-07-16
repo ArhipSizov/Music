@@ -65,6 +65,7 @@ export default function Register3(emailTry) {
         .then(() => {
           updateProfile(auth.currentUser, {
             displayName: null,
+            email: null,
           })
             .then(() => {
               navigate("/profile");
