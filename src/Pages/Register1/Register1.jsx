@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { addUser } from "../../store/Slice";
+import { addUser } from "../../Services/store/Slice";
 
 export default function Register1() {
   const navigate = useNavigate();
