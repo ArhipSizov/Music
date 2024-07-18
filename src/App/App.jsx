@@ -30,7 +30,7 @@ function App() {
     onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
         setShowNavFooter(false);
-        navigate("/");
+        navigate("/loading");
         setUser({
           email: null,
           displayName: null,
@@ -60,10 +60,10 @@ function App() {
         <Route path="/recovery3" element={<Recovery3 />} />
         <Route path="/recoveryfinal" element={<RecoveryFinal />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/" element={<Search />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/" element={<Loading />} />
+        <Route path="/loading" element={<Loading />} />
         <Route path="*" element={<Error />} />
       </Routes>
       {showNavFooter && (<Footer />)}

@@ -39,9 +39,40 @@ export default function Profile() {
   }
   return (
     <div className="profile">
-      <div onClick={signOutUser}>
-        <p>{user.email}</p>
-        <p>Выйти</p>
+      <div className="background"></div>
+      <img className="user_img" src="/user.png" alt="" />
+      <div className="all_profile">
+        <div className="change">
+          <img src="/settings.svg" alt="" />
+          <img src="/change.svg" alt="" />
+        </div>
+        <div className="profile_data">
+          <p className="name">{user.displayName}12</p>
+          <p className="number">{user.number}12</p>
+          <p className="email">{user.email}</p>
+        </div>
+        <div className="options">
+          <div>
+            <img src="/heart.svg" alt="" />
+            <p>Избранное</p>
+          </div>
+          <div>
+            <img src="/star.svg" alt="" />
+            <p>Мои отзывы</p>
+          </div>
+          <div>
+            <img src="/card.svg" alt="" />
+            <p>Платежные карты</p>
+          </div>
+          <div>
+            <img src="/question.svg" alt="" />
+            <p>Помощь</p>
+          </div>
+          <div onClick={signOutUser}>
+            <img src="/exit.svg" alt="" />
+            <p>Выйти из профиля</p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@
     "img_active": "SearchActive.svg",
     "img": "Search.svg",
     "text": "Поиск",
-    "link": "search",
+    "link": "",
     "clas": "img",
     "clas_active": "img_active"
   },
