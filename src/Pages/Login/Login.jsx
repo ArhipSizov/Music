@@ -64,7 +64,7 @@ export default function Login() {
           />
         </div>
 
-        <NavLink className="recovery" to="/recovery1Error">
+        <NavLink className="recovery" to="/recovery">
           Забыли пароль?
         </NavLink>
         <input

@@ -12,6 +12,7 @@ import Search from "../Pages/Search/Search";
 import Footer from "../Components/Footer/Footer";
 import Profile from "../Pages/Profile/Profile";
 import Privacy from "../Pages/Privacy/Privacy";
+import Help from "../Pages/Help/Help"
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/loading" element={<Loading />} />
+        <Route path="/profile/help" element={<Help />} />
         <Route path="*" element={<Error />} />
       </Routes>
       {showNavFooter && (<Footer />)}

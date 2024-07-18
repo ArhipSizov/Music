@@ -1,5 +1,6 @@
 import "./Profile.scss";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
@@ -64,10 +65,10 @@ export default function Profile() {
             <img src="/card.svg" alt="" />
             <p>Платежные карты</p>
           </div>
-          <div>
+          <NavLink className="div" to="help">
             <img src="/question.svg" alt="" />
             <p>Помощь</p>
-          </div>
+          </NavLink>
           <div onClick={signOutUser}>
             <img src="/exit.svg" alt="" />
             <p>Выйти из профиля</p>
