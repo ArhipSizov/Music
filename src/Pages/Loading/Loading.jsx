@@ -80,7 +80,9 @@ export default function Loading() {
       setName("name name_on");
     }, 3500);
     setTimeout(() => {
-      navigate("/login");
+      if (window.location.pathname == "/loading") {
+        navigate("/login");
+      }
     }, 5500);
   }, []);
   return (

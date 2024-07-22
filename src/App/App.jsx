@@ -4,8 +4,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 import "./App.scss";
 import Error from "../Pages/Error/Error";
-import Register1 from "../Pages/Register1/Register1";
-import Register3 from "../Pages/Register3/Register3";
+import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import Loading from "../Pages/Loading/Loading";
 import Search from "../Pages/Search/Search";
@@ -43,13 +42,12 @@ function App() {
   }, []);
 
   if (!user) {
-    return <h1>Загрузка...</h1>;
+    return <Loading />;
   }
   return (
     <div className="all">
       <Routes>
-        <Route path="/register1" element={<Register1 />} />
-        <Route path="/register3" element={<Register3 />} />
+        <Route path="/register1" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Search />} />
         <Route path="/privacy" element={<Privacy />} />
