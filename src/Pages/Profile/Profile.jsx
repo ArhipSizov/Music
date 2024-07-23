@@ -46,7 +46,7 @@ export default function Profile() {
         <div className="profile_data">
           <p className="name">{name}</p>
           <p className="number">{number}</p>
-          <p className="email">Z{email}</p>
+          <p className="email">{email}</p>
         </div>
         <div className="options">
           <div>

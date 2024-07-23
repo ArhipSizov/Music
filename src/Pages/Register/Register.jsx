@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { addUser } from "../../Services/store/Slice";
+import { addUserDB } from "../../Services/fbUsers";
 
 import { useState, useEffect } from "react";
 import {
@@ -12,9 +13,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useSelector } from "react-redux";
-import firebaseConfig from "../../../firebaseConfig";
-import firebase from "firebase/compat/app";
-import "firebase/compat/database";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -52,30 +50,6 @@ export default function Register() {
     }
   });
 
-  const firebaseApp = firebase.initializeApp(firebaseConfig);
-  const db = firebaseApp.database();
-  async function addUserDB(userData) {
-    const ref = db.ref("users").push();
-    const newKey = ref.key;
-    const dataWithKey = {
-      ...userData,
-      key: newKey,
-      email: email,
-      password: pasvord,
-      name: "Аноним",
-      number: "нету",
-    };
-    await ref.set(dataWithKey);
-    userDB(newKey);
-  }
-
-  async function userDB(newKey) {
-    const onjectUser = {
-      key: newKey,
-      email: email,
-    };
-    let json = JSON.stringify(onjectUser);
-  }
 
   function getRegisterData(event) {
     event.preventDefault();
@@ -88,7 +62,7 @@ export default function Register() {
         navigate("/profile");
       });
     });
-    addUserDB();
+    addUserDB({email, pasvord});
     addTask()
   }
 
