@@ -20,19 +20,21 @@ export default function Register() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
+  const [pasvord, setPasvord] = useState("");
+  const [name, setName] = useState("Аноним");
+  const [number, setNumber] = useState("нету");
   const [showRegister1, setShowRegister1] = useState(true);
   const [showRegister2, setShowRegister2] = useState(false);
 
   const dispatch = useDispatch();
 
-  const addTask = () => dispatch(addUser(email));
+  const addTask = () => dispatch(addUser({email, pasvord, name, number}));
 
-  function name() {
+  function showRegisterFunction() {
     setShowRegister1(false);
     setShowRegister2(true);
   }
 
-  const [pasvord, setPasvord] = useState("");
   const [type, setType] = useState("true");
   const [input1, setInput1] = useState("false");
   const [input2, setInput2] = useState("false");
@@ -52,7 +54,7 @@ export default function Register() {
 
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   const db = firebaseApp.database();
-  async function addUser(userData) {
+  async function addUserDB(userData) {
     const ref = db.ref("users").push();
     const newKey = ref.key;
     const dataWithKey = {
@@ -86,7 +88,8 @@ export default function Register() {
         navigate("/profile");
       });
     });
-    addUser();
+    addUserDB();
+    addTask()
   }
 
   function conditionPassword() {
@@ -136,7 +139,7 @@ export default function Register() {
               <hr />
             </div>
           </div>
-          <form onSubmit={name} className="register_all">
+          <form onSubmit={showRegisterFunction} className="register_all">
             <p className="name">Регистрация</p>
             <p className="question">Введите e-mail</p>
             <div className="input_all">

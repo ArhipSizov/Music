@@ -3,40 +3,34 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { useSelector } from "react-redux";
 
 export default function Profile() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
   const auth = getAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      if (!currentUser) {
-        navigate("/login");
-        setUser({
-          email: null,
-          displayName: null,
-        });
-        return;
-      }
-      setUser({
-        displayName: currentUser.displayName,
-        email: currentUser.email,
-      });
+  if (email == "") {
+    const emailArr = useSelector((state) => state.email.email);
+    console.log(emailArr);
+    emailArr.forEach((element) => {
+      console.log(element);
+      setEmail(element.email);
+      setName(element.name);
+      setNumber(element.number);
     });
-  }, []);
+  }
 
   function signOutUser() {
     signOut(auth).then(() => {
       setUser({
         email: null,
-        displayName: null,
       });
+      navigate("/loading");
     });
-  }
-
-  if (!user) {
-    return <h1>Загрузка...</h1>;
   }
   return (
     <div className="profile">
@@ -45,12 +39,14 @@ export default function Profile() {
       <div className="all_profile">
         <div className="change">
           <img src="/settings.svg" alt="" />
-          <img src="/change.svg" alt="" />
+          <NavLink to="/editing">
+            <img src="/change.svg" alt="" />
+          </NavLink>
         </div>
         <div className="profile_data">
-          <p className="name">{user.displayName}12</p>
-          <p className="number">{user.number}12</p>
-          <p className="email">{user.email}</p>
+          <p className="name">{name}</p>
+          <p className="number">{number}</p>
+          <p className="email">Z{email}</p>
         </div>
         <div className="options">
           <div>
