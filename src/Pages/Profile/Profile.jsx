@@ -36,7 +36,9 @@ export default function Profile() {
       <img className="user_img" src="/user.png" alt="" />
       <div className="all_profile">
         <div className="change">
-          <img src="/settings.svg" alt="" />
+          <NavLink to="/settings">
+            <img src="/settings.svg" alt="" />
+          </NavLink>
           <NavLink to="/editing">
             <img src="/change.svg" alt="" />
           </NavLink>

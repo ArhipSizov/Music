@@ -1,11 +1,14 @@
 .footer {
+  z-index: 1000;
   position: fixed;
   display: flex;
   justify-content: space-around;
   width: 375px;
-  bottom: 10px;
+  padding-bottom: 10px;
+  bottom: 0;
   border-top: 1px #00000010 solid;
   padding-top: 10px;
+  background-color: #ffffff;
   .active {
     .text {
       color: #421094;

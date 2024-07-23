@@ -18,7 +18,6 @@ export const addUserDB = (userData) => {
   async function userDB(newKey) {
     const onjectUser = {
       key: newKey,
-      // email: email,
     };
     let json = JSON.stringify(onjectUser);
   }

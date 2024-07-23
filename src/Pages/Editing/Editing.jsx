@@ -36,7 +36,6 @@ export default function Editing() {
 
 
   function updateDatabase(params) {
-    // const newPostKey = push(child(ref(database), "posts")).key;
     const updates = {};
     updates["/users/" + key] = null;
 
