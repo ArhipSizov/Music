@@ -7,13 +7,13 @@ const slice = createSlice({
     },
     reducers:{
         addUser(state, action) {
-            console.log(action);
             state.email.push({
                 id: new Date().toISOString(),
                 email: action.payload.email,
                 password: action.payload.pasvord,
                 name: action.payload.name,
                 number: action.payload.number,
+                key: action.payload.key,
             })
         },
     }

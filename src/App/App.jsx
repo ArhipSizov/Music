@@ -58,6 +58,7 @@ function App() {
           email: null,
           displayName: null,
         });
+        navigate("/loading")
         return;
       } else {
         setShowNavFooter(true);
@@ -73,7 +74,6 @@ function App() {
         dataArr.forEach(function (item) {
           const dataEmail = item.email;
           if (currentUser.email == dataEmail && email == "") {
-            console.log(item);
             setIEmail(item.email);
             setIKey(item.key);
             setPasvord(item.password);
@@ -83,12 +83,12 @@ function App() {
             const pasvord = item.password
             const name = item.name
             const number = item.number
-            dispatch(addUser({ email, pasvord, name, number }));
+            const key = item.key
+            dispatch(addUser({ email, pasvord, name, number, key }));
           }
         });
       });
     });
-    console.log(user);
   }, []);
 
   if (!email && showNavFooter == true) {

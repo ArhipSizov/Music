@@ -13,11 +13,9 @@ export default function Profile() {
   const auth = getAuth();
   const navigate = useNavigate();
 
+  const emailArr = useSelector((state) => state.email.email);
   if (email == "") {
-    const emailArr = useSelector((state) => state.email.email);
-    console.log(emailArr);
     emailArr.forEach((element) => {
-      console.log(element);
       setEmail(element.email);
       setName(element.name);
       setNumber(element.number);
