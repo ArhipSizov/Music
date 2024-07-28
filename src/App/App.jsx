@@ -17,6 +17,7 @@ import { addUser } from "../Services/store/Slice";
 import "./App.scss";
 import Error from "../Pages/Error/Error";
 import Register from "../Pages/Register/Register";
+import Recovery from "../Pages/Recovery/Recovery";
 import Login from "../Pages/Login/Login";
 import Loading from "../Pages/Loading/Loading";
 import Search from "../Pages/Search/Search";
@@ -25,8 +26,10 @@ import Profile from "../Pages/Profile/Profile";
 import Privacy from "../Pages/Privacy/Privacy";
 import Help from "../Pages/Help/Help";
 import Editing from "../Pages/Editing/Editing";
+import EditingPassword from "../Pages/EditingPassword/EditingPassword";
 import Settings from "../Pages/Settings/Settings";
 import Orders from "../Pages/Orders/Orders";
+import Messages from "../Pages/Messages/Messages";
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -100,13 +103,16 @@ function App() {
     <div className="all">
       <Routes>
         <Route path="/register1" element={<Register />} />
+        <Route path="/recovery" element={<Recovery />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Search />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="messages" element={<Messages />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/editing" element={<Editing />} />
+        <Route path="/editing_password" element={<EditingPassword />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/profile/help" element={<Help />} />
         <Route path="*" element={<Error />} />

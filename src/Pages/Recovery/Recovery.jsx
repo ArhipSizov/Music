@@ -1,4 +1,4 @@
-import "./Register.scss";
+import "./Recovery.scss";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -11,10 +11,11 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { useSelector } from "react-redux";
 
-export default function Register() {
+export default function Recovery() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -26,12 +27,7 @@ export default function Register() {
 
   const dispatch = useDispatch();
 
-  const addTask = () => dispatch(addUser({email, pasvord, name, number}));
-
-  function showRegisterFunction() {
-    setShowRegister1(false);
-    setShowRegister2(true);
-  }
+  const addTask = () => dispatch(addUser({ email, pasvord, name, number }));
 
   const [type, setType] = useState("true");
   const [input1, setInput1] = useState("false");
@@ -50,21 +46,7 @@ export default function Register() {
     }
   });
 
-
-  function getRegisterData(event) {
-    event.preventDefault();
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, pasvord).then(() => {
-      updateProfile(auth.currentUser, {
-        displayName: null,
-        email: null,
-      }).then(() => {
-        navigate("/profile");
-      });
-    });
-    addUserDB({email, pasvord});
-    addTask()
-  }
+  const auth = getAuth();
 
   function conditionPassword() {
     setTimeout(() => {
@@ -100,10 +82,24 @@ export default function Register() {
       setButFalse("butFalse");
     }
   }
+
+  function showRegisterFunction() {
+    setShowRegister1(false);
+    setShowRegister2(true);
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        // Password reset email sent!
+        // ..
+      })
+      .catch((error) => {
+        console.log(error);
+        // ..
+      });
+  }
   return (
     <div>
       {showRegister1 && (
-        <div className="register1">
+        <div className="recovery">
           <div className="hr_all">
             <NavLink to="/login">
               <img src="/back.svg" alt="" />
@@ -114,8 +110,8 @@ export default function Register() {
             </div>
           </div>
           <form onSubmit={showRegisterFunction} className="register_all">
-            <p className="name">Регистрация</p>
-            <p className="question">Введите e-mail</p>
+            <p className="name">Восстановление пароля</p>
+            <p className="question">Введите свой email</p>
             <div className="input_all">
               <img className="img" src="/e_mail.svg" alt="" />
               <input
@@ -128,15 +124,6 @@ export default function Register() {
               />
             </div>
             <input className="but" type="submit" value="Подтвердить" />
-            <p className="texst_link">
-              {" "}
-              Регистрируясь, вы соглашаетесь с нашими
-              <NavLink className="link" to="/privacy">
-                {" "}
-                Условиями использования{" "}
-              </NavLink>
-              и даете согласие на обработку персональных данных
-            </p>
           </form>
         </div>
       )}
@@ -153,38 +140,11 @@ export default function Register() {
             </div>
           </div>
           <div className="register_all">
-            <form onSubmit={getRegisterData}>
-              <p className="name">Придумайте пароль</p>
-              <p className="question">
-                Придумайте пароль для входа в приложение
+            <form>
+              <p className="name">
+                На ваш email успешно отправлено письмо с дальнейшими
+                инструкциями для смены пароля
               </p>
-              <div className="input_all">
-                <img className="img" src="/password.svg" alt="" />
-
-                <input
-                  onInput={conditionPassword()}
-                  required
-                  onChange={(e) => setPasvord(e.target.value)}
-                  value={pasvord}
-                  className="input"
-                  type={type ? "password" : "text"}
-                  placeholder="пароль"
-                />
-
-                <img
-                  className="eye"
-                  onClick={() => setType(!type)}
-                  src={type ? "/eye.svg" : "/eye_open.svg"}
-                  alt=""
-                />
-              </div>
-              <div className="params">
-                <p className={input1}>Не менее 9 символов</p>
-                <p className={input2}>Строчные и заглавные буквы</p>
-                <p className={input3}>Цифры и спецсимволы (#, &, ! и т. п.)</p>
-              </div>
-              <input className={but} type="submit" value="Подтвердить" />
-              <div className={butFalse}>Подтвердить</div>
             </form>
           </div>
         </div>

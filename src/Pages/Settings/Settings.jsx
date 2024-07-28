@@ -31,8 +31,7 @@ export default function Settings() {
       >
         <p>Безопасность</p>
         <h3 className={showText1}>
-          Ваша безопасность очень важна для нас. О том как мы её сохраняем вы
-          можете прочитать <NavLink to="/privacy">тут</NavLink>
+          изменить <NavLink to="/editing_password">пароль</NavLink>
         </h3>
         <img className={showImg1} src="/backAlt.svg" alt="" />
       </div>

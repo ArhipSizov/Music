@@ -1,0 +1,75 @@
+.mini_block {
+  border-radius: 16px;
+  padding: 12px;
+  background-color: #fff;
+  width: 90%;
+  margin: 2.5% 5%;
+  p {
+    color: #757575;
+  }
+  .top {
+    .logo {
+      position: absolute;
+    }
+    .no_logo {
+      .name {
+        color: black;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      margin-left: 30%;
+      width: 70%;
+      display: grid;
+      grid-template-columns: 2fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      .box3_4 {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .box1 {
+        display: flex;
+        justify-content: space-between;
+      }
+      .box1,
+      .box2,
+      .box3,
+      .box4 {
+        height: 20px;
+        p {
+          display: inline-block;
+        }
+      }
+      .box2,
+      .box3,
+      .box4 {
+        margin-top: 4px;
+        p {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  .title{
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+  .bottom{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 12px;
+    margin-bottom: 4px;
+    border-top: #F2F1F8 1px solid;
+    .cost_company{
+      color: black;
+      font-size: 20px;
+      font-weight: 700;
+      p{
+        color: black;
+        display: inline;
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+  }
+}
