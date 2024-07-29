@@ -3,15 +3,19 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { useSelector } from "react-redux";
 
 export default function Profile() {
   const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
+  const [img, setImg] = useState("img");
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const auth = getAuth();
   const navigate = useNavigate();
+
+  const storage = getStorage();
 
   const emailArr = useSelector((state) => state.email.email);
   if (email == "") {
@@ -30,10 +34,23 @@ export default function Profile() {
       navigate("/loading");
     });
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      getDownloadURL(ref(storage, email))
+        .then((url) => {
+          const img = document.getElementById("img");
+          img.setAttribute("src", url);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 1);
+  }, []);
   return (
     <div className="profile">
       <div className="background"></div>
-      <img className="user_img" src="/user.png" alt="" />
+      <img id="img" className="user_img" src="/user.png" alt="" />
       <div className="all_profile">
         <div className="change">
           <NavLink to="/settings">

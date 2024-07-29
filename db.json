@@ -50,22 +50,33 @@
       "cost": "anyCost",
       "services": ["soundRecording", "mixing", "mastering", "anything_else"],
       "facilities": ["Wi-Fi", "parking", "toilet", "anything_else"],
-      "reviews": [
-        {
+      "reviews": {
+        "anyCompany1":[
+          {
           "photo": "anyPhoto",
           "name": "anyName",
           "data": "01.01.2001",
           "review": "anyReview",
           "stars": "1-5"
-        },
-        {
+          }
+        ],
+        "anyCompany2":[
+          {
           "photo": "anyPhoto",
-          "name": "anyName2",
-          "data": "01.01.2010",
-          "review": "anyReview2",
-          "stars": "4"
-        }
-      ],
+          "name": "anyName",
+          "data": "01.01.2001",
+          "review": "anyReview",
+          "stars": "1-5"
+          },
+          {
+            "photo": "anyPhoto",
+            "name": "anyName",
+            "data": "01.01.2001",
+            "review": "anyReview",
+            "stars": "1-5"
+            }
+        ]
+      },
       "halls": {
         "hall1": {
           "photo": "anyPhoto",

@@ -5,6 +5,7 @@ import App from "./App/App";
 import "./Style/index.scss";
 import firebaseConfig from "../firebaseConfig";
 import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 import { Provider } from "react-redux";
 import store from "./Services/store";
 import firebase from "firebase/compat/app";

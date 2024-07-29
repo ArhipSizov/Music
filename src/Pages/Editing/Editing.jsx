@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { database } from "../../Services/store/index";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import App from "../../Components/CroptImage/App"
 
 export default function Editing() {
   const navigate = useNavigate();
@@ -74,6 +75,7 @@ export default function Editing() {
           type="submit"
         >Подтвердить</div>
       </form>
+      <App></App>
     </div>
   );
 }
