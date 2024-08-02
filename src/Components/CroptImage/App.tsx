@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <ImageUpload setCroppedImage={setCroppedImage} setOriginalImage={setFullImage} round aspect={1} sizeLimit={150000}/>
+      <ImageUpload setCroppedImage={setCroppedImage} setOriginalImage={setFullImage} round aspect={1} sizeLimit={520000}/>
     </>
   )
 }

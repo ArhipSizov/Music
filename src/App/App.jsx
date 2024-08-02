@@ -30,6 +30,7 @@ import EditingPassword from "../Pages/EditingPassword/EditingPassword";
 import Settings from "../Pages/Settings/Settings";
 import Orders from "../Pages/Orders/Orders";
 import Messages from "../Pages/Messages/Messages";
+import Filter from "../Pages/Filter/Filter";
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -106,6 +107,7 @@ function App() {
         <Route path="/recovery" element={<Recovery />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Search />} />
+        <Route path="/filter" element={<Filter />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="messages" element={<Messages />} />
         <Route path="/privacy" element={<Privacy />} />

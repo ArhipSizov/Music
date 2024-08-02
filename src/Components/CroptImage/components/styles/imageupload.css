@@ -139,6 +139,9 @@ button:focus, button:focus-visible {
 #crop-button{
     margin-left: auto;
     margin-right: auto;
+    background-color: #421094;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 #editor-button-row{

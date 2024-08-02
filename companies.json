@@ -41,5 +41,41 @@
         "services": []
       }
     }
+  },
+  "Nerv-R": {
+    "name": "Nerv-R",
+    "logo": "/Nerv-R.png",
+    "photo": "/Nerv-R_cab.png",
+    "number": "+375 33 659 31 42",
+    "email": "Nerv-R@gmail.com",
+    "location": "пер. Щербакова, 8",
+    "image_map":"/Nerv-R_map.png",
+    "square": "48",
+    "description": "Музыкальный хит у нас в студии у тебя точно получится!",
+    "area": "Звукозапись",
+    "time_days":"Пн-Вс",
+    "time_hours":"9:00–21:00",
+    "cost": "40",
+    "services": ["Звукозапись", "Сведение", "Мастеринг", "Аранжировка", "Озвучивание"],
+    "facilities": ["Wi-Fi", "Парковка", "Чай/кофе", "Курилка", "Туалет", "Отдельный вход", "Аренда оборудования"],
+    "halls": {
+      "Комната": {
+        "photo": "anyPhoto",
+        "square": "48",
+        "cost": "40",
+        "equipment": [
+          {
+            "name": "anyNameEqu",
+            "cost": "anyCost"
+          }
+        ],
+        "services": [
+          {
+            "name": "anyNameServ",
+            "cost": "anyCost"
+          }
+        ]
+      }
+    }
   }
 }

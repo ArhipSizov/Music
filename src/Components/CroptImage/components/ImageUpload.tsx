@@ -63,7 +63,7 @@ const ImageUpload = (props: IMGProps) => {
         const file = e.currentTarget.files[0];
         if(props.sizeLimit && file.size > props.sizeLimit)
         {
-            setStatusMessage("Файл слишком большой.");
+            setStatusMessage("Размер файла больше 500кб");
         }
         else
         {
@@ -106,7 +106,7 @@ const ImageUpload = (props: IMGProps) => {
                 const file = item.getAsFile();
                 if(props.sizeLimit && file.size > props.sizeLimit)
                 {
-                    setStatusMessage("Файл слишком большой.");
+                    setStatusMessage("Размер файла больше 500кб");
                 }
                 else
                 {
