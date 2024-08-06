@@ -56,8 +56,44 @@
     "time_days":"Пн-Вс",
     "time_hours":"9:00–21:00",
     "cost": "40",
-    "services": ["Звукозапись", "Сведение", "Мастеринг", "Аранжировка", "Озвучивание"],
+    "services": ["Звукозапись", "Сведение", "Мастеринг", "Оцифровка", "Озвучивание"],
     "facilities": ["Wi-Fi", "Парковка", "Чай/кофе", "Курилка", "Туалет", "Отдельный вход", "Аренда оборудования"],
+    "halls": {
+      "Комната": {
+        "photo": "anyPhoto",
+        "square": "48",
+        "cost": "40",
+        "equipment": [
+          {
+            "name": "anyNameEqu",
+            "cost": "anyCost"
+          }
+        ],
+        "services": [
+          {
+            "name": "anyNameServ",
+            "cost": "anyCost"
+          }
+        ]
+      }
+    }
+  },
+  "OneThousand": {
+    "name": "1000 Records",
+    "logo": "/OneThousand.png",
+    "photo": "/OneThousand_cab.png",
+    "number": "+375 33 765 79 32",
+    "email": "OneThousand@gmail.com",
+    "location": "ст. м. Институт Культуры",
+    "image_map":"/OneThousand_map.png",
+    "square": "38",
+    "description": "Я не придумал описание для третьей компании",
+    "area": "Звукозапись",
+    "time_days":"Пн-Вс",
+    "time_hours":"9:00–21:00",
+    "cost": "25",
+    "services": ["Сведение", "Мастеринг", "Песня “под ключ”"],
+    "facilities": ["Wi-Fi"],
     "halls": {
       "Комната": {
         "photo": "anyPhoto",

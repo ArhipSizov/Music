@@ -4,6 +4,7 @@ import FullBlock from "../FullBlock/FullBlock";
 
 export default function MiniBlock({
   name,
+  facilities,
   logo,
   location,
   square,
@@ -11,9 +12,14 @@ export default function MiniBlock({
   cost,
   item,
   input,
+  servicesArr,
+  showFilter,
+  facilitiesArr,
+  minCost,
+  maxCost,
 }) {
   const [showFullBlock, setShowFullBlock] = useState(false);
-  const [showBlock, setShowBlock] = useState(false);
+  const [showBlock, setShowBlock] = useState(true);
 
   class RegExp1 extends RegExp {
     constructor(str) {
@@ -26,12 +32,55 @@ export default function MiniBlock({
   }
 
   useEffect(() => {
+    let help = 0;
     if (name.search(new RegExp1(input)) == 0) {
-      setShowBlock(true);
+      if (servicesArr.length == 0) {
+        help = help + 1;
+      } else {
+        let a = 0;
+        services.forEach(function (item1) {
+          servicesArr.forEach(function (item2) {
+            if (item1 !== item2) {
+            } else {
+              a = a + 1;
+              if (a == servicesArr.length) {
+                help = help + 1;
+              }
+            }
+          });
+        });
+      }
+
+      if (facilitiesArr.length == 0) {
+        help = help + 1;
+      } else {
+        let a = 0;
+        facilities.forEach(function (item1) {
+          facilitiesArr.forEach(function (item2) {
+            if (item1 !== item2) {
+            } else {
+              a = a + 1;
+              if (a == facilitiesArr.length) {
+                help = help + 1;
+              }
+            }
+          });
+        });
+      }
+
+      if (+minCost <= cost && cost <= +maxCost) {
+        help = help + 1;
+      }
+
+      if (help == 3) {
+        setShowBlock(true);
+      }else{
+        setShowBlock(false);
+      }
     } else {
       setShowBlock(false);
     }
-  }, [input]);
+  }, [input, showFilter]);
 
   return (
     <div className="mini_block">
@@ -81,18 +130,3 @@ export default function MiniBlock({
     </div>
   );
 }
-
-// const dataArr = Object.values(name);
-// console.log(name);
-// dataArr.forEach(function (item) {
-//   console.log(item.search(input));
-//   // Expected output: 41
-
-//   console.log(input[input.search(item)]);
-//   // Expected output: "!"
-
-//   console.log(input);
-//   if (input[input.search(item)] > 0) {
-//     console.log(42334422343243);
-//   }
-// })

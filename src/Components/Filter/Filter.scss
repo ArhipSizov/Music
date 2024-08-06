@@ -1,7 +1,9 @@
 .filter {
+  position: absolute;
+  z-index: 10;
   min-height: 100vh;
   background-color: #fff;
-  padding-bottom: 70px;
+  padding-bottom: 130px;
   .nav {
     padding-top: 36px;
     padding-bottom: 12px;
@@ -36,19 +38,12 @@
         padding: 13.5px 8px;
         border-radius: 8px;
         cursor: pointer;
+        transition: 0.2s;
       }
-    }
-    .button {
-      cursor: pointer;
-      text-align: center;
-      color: #fff;
-      background-color: #421094;
-      font-size: 18px;
-      padding: 12px 0;
-      margin-top: 40px;
-      border-radius: 10px;
-      margin-left: 5%;
-      width: 90%;
+      .active{
+        background-color: #421094;
+        color: #fff;
+      }
     }
     .filter_block_cost {
       h6 {
@@ -71,5 +66,18 @@
         border-bottom: #EBEBEB 1px solid;
       }
     }
+  }
+  .button {
+    position: fixed;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    background-color: #421094;
+    font-size: 18px;
+    padding: 12px 0;
+    border-radius: 10px;
+    margin: 0 32px;
+    width: 311px;
+    bottom: 92px;
   }
 }
