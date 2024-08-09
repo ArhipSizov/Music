@@ -3,6 +3,9 @@ import "./FullBlock.scss";
 export default function FullBlock({ item, setShowBlock }) {
   return (
     <div className="full_block">
+      <div className="button">
+        Заказать
+      </div>
       <div className="nav">
         <img onClick={() => setShowBlock(false)} src="/backAlt.svg" alt="" />
         <img src="/heart_empty.svg" alt="" />
@@ -10,7 +13,7 @@ export default function FullBlock({ item, setShowBlock }) {
       <img className="photo" src={item.photo} alt="" />
       <div className="body">
         <div className="top_information">
-          <img src={item.logo} alt="" />
+          <img className="logo_img" src={item.logo} alt="" />
           <div className="top_information_no_img">
             <p className="name">{item.name}</p>
             <p>0 отзывов</p>

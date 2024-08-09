@@ -113,5 +113,130 @@
         ]
       }
     }
+  },
+  "OvertoneStudio": {
+    "name": "Overtone Studio",
+    "logo": "/OvertoneStudio.png",
+    "photo": "/OvertoneStudio_cab.png",
+    "number": "+375 33 040 34 43",
+    "email": "OvertoneStudio@gmail.com",
+    "location": "Минск, улица Макаёнка, 1",
+    "image_map":"/OvertoneStudio_map.png",
+    "square": "25-50",
+    "description": "Здесь вы найдёте ваши шедевы",
+    "area": "Звукозапись",
+    "time_days":"Пн-Вс",
+    "time_hours":"8:00–21:00",
+    "cost": "20",
+    "services": ["Сведение", "Мастеринг", "Репетиция"],
+    "facilities": ["Wi-Fi", "Курилка", "Туалет"],
+    "halls": {
+      "Комната A": {
+        "photo": "anyPhoto",
+        "square": "25",
+        "cost": "20",
+        "equipment": [
+          {
+            "name": "anyNameEqu",
+            "cost": "anyCost"
+          }
+        ],
+        "services": [
+          {
+            "name": "anyNameServ",
+            "cost": "anyCost"
+          }
+        ]
+      },
+      "Комната B": {
+        "photo": "anyPhoto",
+        "square": "50",
+        "cost": "40",
+        "equipment": [
+          {
+            "name": "anyNameEqu",
+            "cost": "anyCost"
+          }
+        ],
+        "services": [
+          {
+            "name": "anyNameServ",
+            "cost": "anyCost"
+          }
+        ]
+      }
+    }
+  },
+  "BAHrecords": {
+    "name": "BAH records",
+    "logo": "/BAHrecords.png",
+    "photo": "/BAHrecords_cab.png",
+    "number": "+375 33 497 32 52",
+    "email": "BAHrecords@gmail.com",
+    "location": "ул. Кальварийская, 44",
+    "image_map":"/BAHrecords_map.png",
+    "square": "42",
+    "description": "Ошытшоаво выоывл лвыло. Влывд твыовыо рыф!",
+    "area": "Звукозапись",
+    "time_days":"Пн-Вс",
+    "time_hours":"8:00–21:00",
+    "cost": "24",
+    "services": ["Сведение", "Мастеринг", "Оцифровка", "Озвучивание", "Аранжировка"],
+    "facilities": ["Wi-Fi", "Туалет", "Зона отдыха", "Чай/кофе", "Кондиционер", "Парковка"],
+    "halls": {
+      "Комната": {
+        "photo": "anyPhoto",
+        "square": "42",
+        "cost": "24",
+        "equipment": [
+          {
+            "name": "anyNameEqu",
+            "cost": "anyCost"
+          }
+        ],
+        "services": [
+          {
+            "name": "anyNameServ",
+            "cost": "anyCost"
+          }
+        ]
+      }
+    }
+  },
+  "AllInclude": {
+    "name": "All Include",
+    "logo": "/AllInclude.png",
+    "photo": "/AllInclude_cab.png",
+    "number": "+375 33 435 97 32",
+    "email": "AllInclude@gmail.com",
+    "location": "улица Макаёнка, 1",
+    "image_map":"/AllInclude_map.png",
+    "square": "100",
+    "description": "Здесь вы найдёте всё что вам нужно для ваших шедевров",
+    "area": "Звукозапись",
+    "time_days":"Пн-Вс",
+    "time_hours":"8:00–21:00",
+    "cost": "100",
+    "services": ["Сведение", "Мастеринг", "Песня “под ключ”", "Оцифровка", "Озвучивание", "Аранжировка", "Звукозапись", "Репетиция"],
+    "facilities": ["Wi-Fi", "Отдельный вход", "Курилка", "Туалет", "Зона отдыха", "Чай/кофе", "Кондиционер", "Просторный зал", "Парковка", "Аренда оборудования"],
+    "halls": {
+      "Комната": {
+        "photo": "anyPhoto",
+        "square": "100",
+        "cost": "100",
+        "equipment": [
+          {
+            "name": "anyNameEqu",
+            "cost": "anyCost"
+          }
+        ],
+        "services": [
+          {
+            "name": "anyNameServ",
+            "cost": "anyCost"
+          }
+        ]
+      }
+    }
   }
 }

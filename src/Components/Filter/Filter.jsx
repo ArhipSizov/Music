@@ -63,7 +63,7 @@ export default function Filter({
     setServices([]);
     setFacilities([]);
     setMinCost(20);
-    setMaxCost(40);
+    setMaxCost(100);
   }, []);
 
   return (
@@ -84,13 +84,13 @@ export default function Filter({
             <input
               onChange={(event) => setMinCost(event.target.value)}
               placeholder="20"
-              type="text"
+              type="number"
             />
             <p>до</p>
             <input
               onChange={(event) => setMaxCost(event.target.value)}
-              placeholder="40"
-              type="text"
+              placeholder="100"
+              type="number"
             />
             <p>р.</p>
           </div>
@@ -184,7 +184,7 @@ export default function Filter({
           </div>
           <div
             className={hall}
-            onClick={() => addFilterFacilities(hall, setHall, "hall")}
+            onClick={() => addFilterFacilities(hall, setHall, "Просторный зал")}
           >
             Просторный зал
           </div>

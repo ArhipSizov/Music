@@ -13,7 +13,7 @@ export default function Search() {
   const [facilitiesArr, setFacilitiesArr] = useState([]);
 
   const [minCost, setMinCost] = useState(20);
-  const [maxCost, setMaxCost] = useState(40);
+  const [maxCost, setMaxCost] = useState(100);
 
   const companies = Object.values(arrCompanies);
 

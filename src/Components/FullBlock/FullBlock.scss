@@ -1,4 +1,17 @@
 .full_block{
+    .button{
+        position: fixed;
+        cursor: pointer;
+        text-align: center;
+        color: #fff;
+        background-color: #421094;
+        font-size: 18px;
+        padding: 12px 0;
+        border-radius: 10px;
+        margin: 0 32px;
+        width: 311px;
+        bottom: 92px;
+    }
     .nav{
         img{
             cursor: pointer;
