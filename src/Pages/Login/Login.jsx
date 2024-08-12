@@ -10,6 +10,7 @@ export default function Login() {
   const [type, setType] = useState("true");
 
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("none");
   const [pasvord, setPasvord] = useState("");
 
   function getLoginData(event) {
@@ -20,7 +21,10 @@ export default function Login() {
         navigate("/profile");
       })
       .catch((e) => {
-        setError(true);
+        setError("error");
+        setTimeout(() => {
+          setError("none");
+        }, 3000);
       });
   }
 
@@ -67,6 +71,7 @@ export default function Login() {
         <NavLink className="recovery_but" to="/recovery">
           Забыли пароль?
         </NavLink>
+        <p className={error}>Неверный e-mail или пароль</p>
         <input
           type="submit"
           value="Войти"

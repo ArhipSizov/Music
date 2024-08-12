@@ -43,7 +43,6 @@ export default function Profile() {
           img.setAttribute("src", url);
         })
         .catch((error) => {
-          console.log(error);
         });
     }, 1);
   }, []);
@@ -66,10 +65,10 @@ export default function Profile() {
           <p className="email">{email}</p>
         </div>
         <div className="options">
-          <div>
-            <img src="/heart.svg" alt="" />
+          <NavLink className="div" to="/favorites">
+            <img src="/heart_empty.svg" alt="" />
             <p>Избранное</p>
-          </div>
+          </NavLink>
           <div>
             <img src="/star.svg" alt="" />
             <p>Мои отзывы</p>

@@ -26,7 +26,7 @@ export default function Register() {
 
   const dispatch = useDispatch();
 
-  const addTask = () => dispatch(addUser({email, pasvord, name, number}));
+  const addTask = () => dispatch(addUser({ email, pasvord, name, number }));
 
   function showRegisterFunction() {
     setShowRegister1(false);
@@ -38,6 +38,7 @@ export default function Register() {
   const [input2, setInput2] = useState("false");
   const [input3, setInput3] = useState("false");
   const [but, setBut] = useState("none");
+  const [error, setError] = useState("none");
   const [butFalse, setButFalse] = useState("butFalse");
   const [help, setHelp] = useState(0);
 
@@ -50,10 +51,12 @@ export default function Register() {
     }
   });
 
-
   function getRegisterData(event) {
     event.preventDefault();
     const auth = getAuth();
+    setTimeout(() => {
+      setError("error")
+    }, 2000);
     createUserWithEmailAndPassword(auth, email, pasvord).then(() => {
       updateProfile(auth.currentUser, {
         displayName: null,
@@ -183,6 +186,7 @@ export default function Register() {
                 <p className={input2}>Строчные и заглавные буквы</p>
                 <p className={input3}>Цифры и спецсимволы (#, &, ! и т. п.)</p>
               </div>
+              <p className={error}>Пользователь уже зарегистрирован</p>
               <input className={but} type="submit" value="Подтвердить" />
               <div className={butFalse}>Подтвердить</div>
             </form>

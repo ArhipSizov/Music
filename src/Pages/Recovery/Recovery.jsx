@@ -92,7 +92,6 @@ export default function Recovery() {
         // ..
       })
       .catch((error) => {
-        console.log(error);
         // ..
       });
   }

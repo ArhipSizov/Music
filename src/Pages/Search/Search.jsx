@@ -3,6 +3,7 @@ import Filter from "../../Components/Filter/Filter";
 import MiniBlock from "../../Components/MiniBlock/MiniBlock";
 import arrCompanies from "../../../companies.json";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useState } from "react";
 
 export default function Search() {
@@ -11,6 +12,18 @@ export default function Search() {
 
   const [servicesArr, setServicesArr] = useState([]);
   const [facilitiesArr, setFacilitiesArr] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  const [key, setKey] = useState("");
+
+  const emailArr = useSelector((state) => state.email.email);
+  if (key == "") {
+    emailArr.forEach((element) => {
+      if (element.favorites !== undefined) {
+        setFavorites(element.favorites);
+      }
+      setKey(element.key);
+    });
+  }
 
   const [minCost, setMinCost] = useState(20);
   const [maxCost, setMaxCost] = useState(100);
@@ -55,6 +68,9 @@ export default function Search() {
           facilitiesArr={facilitiesArr}
           minCost={minCost}
           maxCost={maxCost}
+          favorites={favorites}
+          setFavorites={setFavorites}
+          keyFavorites={key}
         ></MiniBlock>
       ))}
       <a href="https://yandex.ru/maps/?um=constructor%3Af2f5caf6448b1ab3548e44bc551bdf5f59dbf866488697858b3059f82f0bca7d&source=constructorLink">

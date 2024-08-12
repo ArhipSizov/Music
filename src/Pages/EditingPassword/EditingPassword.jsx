@@ -18,7 +18,6 @@ export default function EditingPassword() {
         // ..
       })
       .catch((error) => {
-        console.log(error);
         // ..
       });
   }

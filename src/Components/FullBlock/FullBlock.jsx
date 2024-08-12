@@ -8,7 +8,6 @@ export default function FullBlock({ item, setShowBlock }) {
       </div>
       <div className="nav">
         <img onClick={() => setShowBlock(false)} src="/backAlt.svg" alt="" />
-        <img src="/heart_empty.svg" alt="" />
       </div>
       <img className="photo" src={item.photo} alt="" />
       <div className="body">

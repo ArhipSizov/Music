@@ -30,6 +30,7 @@ import EditingPassword from "../Pages/EditingPassword/EditingPassword";
 import Settings from "../Pages/Settings/Settings";
 import Orders from "../Pages/Orders/Orders";
 import Messages from "../Pages/Messages/Messages";
+import Favorites from "../Pages/Favorites/Favorites";
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -83,13 +84,13 @@ function App() {
             setIKey(item.key);
             setPasvord(item.password);
             setName(item.name);
-            setName(item.password);
             const email = item.email
             const pasvord = item.password
             const name = item.name
             const number = item.number
             const key = item.key
-            dispatch(addUser({ email, pasvord, name, number, key }));
+            const favorites = item.favorites
+            dispatch(addUser({ email, pasvord, name, number, key, favorites }));
           }
         });
       });
@@ -112,6 +113,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/editing" element={<Editing />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/editing_password" element={<EditingPassword />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/profile/help" element={<Help />} />

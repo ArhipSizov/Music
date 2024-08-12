@@ -1,6 +1,8 @@
 import "./MiniBlock.scss";
 import { useState, useEffect } from "react";
 import FullBlock from "../FullBlock/FullBlock";
+import { ref, update } from "firebase/database";
+import { database } from "../../Services/store/index";
 
 export default function MiniBlock({
   name,
@@ -17,9 +19,18 @@ export default function MiniBlock({
   facilitiesArr,
   minCost,
   maxCost,
+  favorites,
+  setFavorites,
+  keyFavorites,
+  classBlock
 }) {
   const [showFullBlock, setShowFullBlock] = useState(false);
-  const [showBlock, setShowBlock] = useState(true);
+  const [showBlock, setShowBlock] = useState(false);
+  const [heart, setHeart] = useState("/heart_empty.svg");
+
+
+
+
 
   class RegExp1 extends RegExp {
     constructor(str) {
@@ -74,14 +85,57 @@ export default function MiniBlock({
 
       if (help == 3) {
         setShowBlock(true);
-      }else{
+      } else {
         setShowBlock(false);
       }
     } else {
-      setShowBlock(false);
+      if (input !== undefined) {
+        setShowBlock(false);
+      }
     }
   }, [input, showFilter]);
 
+  useEffect(() => {
+    favorites.forEach(function (item) {
+      if (item == name) {
+        setHeart("/heart.svg");
+      }
+      if (classBlock == "favorites") {
+        if (item == name) {
+          setShowBlock(true)
+        }
+      }
+    });
+  }, []);
+
+  function updateDatabase(params) {
+    let newArr = []
+    favorites.forEach(function (item) {
+      newArr.push(item)
+    });
+    if (params == "add") {
+      newArr.push(name)
+    }else{
+      newArr = newArr.filter((newArr) => newArr !== name);
+    }
+    setFavorites(newArr)
+    const updates = {};
+    const postData = newArr;
+    updates["/users/" + keyFavorites + "/favorites/"] = postData;
+    return update(ref(database), updates);
+  }
+  function heartFunction() {
+    setTimeout(() => {
+      setShowFullBlock(false);
+    }, 1);
+    if (heart == "/heart_empty.svg") {
+      setHeart("/heart.svg");
+      updateDatabase("add");
+    } else {
+      setHeart("/heart_empty.svg");
+      updateDatabase("delete");
+    }
+  }
   return (
     <div className="mini_block">
       {showFullBlock && (
@@ -96,7 +150,7 @@ export default function MiniBlock({
             <div className="no_logo">
               <div className="box1">
                 <p className="name">{name}</p>
-                <img src="/heart_empty.svg" alt="" />
+                <img onClick={() => heartFunction()} src={heart} alt="" />
               </div>
               <div className="box2">
                 <img src="/point_company.svg" alt="" />
