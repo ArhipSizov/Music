@@ -1,11 +1,18 @@
 import "./FullBlock.scss";
+import { useState } from "react";
+import Booking from "../Booking/Booking";
 
 export default function FullBlock({ item, setShowBlock }) {
+  const [showBookingBlock, setShowBookingBlock] = useState(false);
+
   return (
     <div className="full_block">
-      <div className="button">
-        Заказать
-      </div>
+      {showBookingBlock && (
+        <div className="full_block_all">
+          <Booking item={item} setShowBookingBlock={setShowBookingBlock} />
+        </div>
+      )}
+      <div onClick={() => setShowBookingBlock(true)} className="button">Заказать</div>
       <div className="nav">
         <img onClick={() => setShowBlock(false)} src="/backAlt.svg" alt="" />
       </div>

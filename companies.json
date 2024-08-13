@@ -11,13 +11,15 @@
     "description": "От музыкального хита тебя отделяет один шаг! Мы уверены, что у каждого музыканта есть возможность написать хит, который покорит сердца множества слушателей!",
     "area": "Звукозапись",
     "time_days":"Пн-Вс",
-    "time_hours":"9:00–21:00",
+    "time_hours_start":"9",
+    "time_hours_end":"21",
     "cost": "25",
     "services": ["Звукозапись", "Сведение", "Мастеринг", "Аранжировка", "Озвучивание"],
     "facilities": ["Wi-Fi", "Парковка", "Чай/кофе", "Курилка"],
     "halls": {
       "Комната S": {
-        "photo": "anyPhoto",
+        "name":"Комната S",
+        "photo": "/13studio_room_s.png",
         "square": "30",
         "cost": "25",
         "equipment": [
@@ -34,7 +36,8 @@
         ]
       },
       "Комната L": {
-        "photo": "anyPhoto2",
+        "name":"Комната L",
+        "photo": "/13studio_room_l.png",
         "square": "65",
         "cost": "50",
         "equipment": [],
@@ -54,13 +57,15 @@
     "description": "Музыкальный хит у нас в студии у тебя точно получится!",
     "area": "Звукозапись",
     "time_days":"Пн-Вс",
-    "time_hours":"9:00–21:00",
+    "time_hours_start":"9",
+    "time_hours_end":"22",
     "cost": "40",
     "services": ["Звукозапись", "Сведение", "Мастеринг", "Оцифровка", "Озвучивание"],
     "facilities": ["Wi-Fi", "Парковка", "Чай/кофе", "Курилка", "Туалет", "Отдельный вход", "Аренда оборудования"],
     "halls": {
       "Комната": {
-        "photo": "anyPhoto",
+        "name":"Комната",
+        "photo": "/Nerv-R_room.png",
         "square": "48",
         "cost": "40",
         "equipment": [
@@ -90,13 +95,15 @@
     "description": "Я не придумал описание для третьей компании",
     "area": "Звукозапись",
     "time_days":"Пн-Вс",
-    "time_hours":"9:00–21:00",
+    "time_hours_start":"8",
+    "time_hours_end":"21",
     "cost": "25",
     "services": ["Сведение", "Мастеринг", "Песня “под ключ”"],
     "facilities": ["Wi-Fi"],
     "halls": {
       "Комната": {
-        "photo": "anyPhoto",
+        "name":"Комната",
+        "photo": "/OneThousand_room.png",
         "square": "48",
         "cost": "40",
         "equipment": [
@@ -126,13 +133,15 @@
     "description": "Здесь вы найдёте ваши шедевы",
     "area": "Звукозапись",
     "time_days":"Пн-Вс",
-    "time_hours":"8:00–21:00",
+    "time_hours_start":"10",
+    "time_hours_end":"20",
     "cost": "20",
     "services": ["Сведение", "Мастеринг", "Репетиция"],
     "facilities": ["Wi-Fi", "Курилка", "Туалет"],
     "halls": {
       "Комната A": {
-        "photo": "anyPhoto",
+        "name":"Комната A",
+        "photo": "/OvertoneStudio_room_a.png",
         "square": "25",
         "cost": "20",
         "equipment": [
@@ -149,7 +158,8 @@
         ]
       },
       "Комната B": {
-        "photo": "anyPhoto",
+        "name":"Комната B",
+        "photo": "/OvertoneStudio_room_b.png",
         "square": "50",
         "cost": "40",
         "equipment": [
@@ -179,13 +189,15 @@
     "description": "Ошытшоаво выоывл лвыло. Влывд твыовыо рыф!",
     "area": "Звукозапись",
     "time_days":"Пн-Вс",
-    "time_hours":"8:00–21:00",
+    "time_hours_start":"9",
+    "time_hours_end":"21",
     "cost": "24",
     "services": ["Сведение", "Мастеринг", "Оцифровка", "Озвучивание", "Аранжировка"],
     "facilities": ["Wi-Fi", "Туалет", "Зона отдыха", "Чай/кофе", "Кондиционер", "Парковка"],
     "halls": {
       "Комната": {
-        "photo": "anyPhoto",
+        "name":"Комната A",
+        "photo": "/BAHrecords_room.png",
         "square": "42",
         "cost": "24",
         "equipment": [
@@ -215,13 +227,15 @@
     "description": "Здесь вы найдёте всё что вам нужно для ваших шедевров",
     "area": "Звукозапись",
     "time_days":"Пн-Вс",
-    "time_hours":"8:00–21:00",
+    "time_hours_start":"6",
+    "time_hours_end":"22",
     "cost": "100",
     "services": ["Сведение", "Мастеринг", "Песня “под ключ”", "Оцифровка", "Озвучивание", "Аранжировка", "Звукозапись", "Репетиция"],
     "facilities": ["Wi-Fi", "Отдельный вход", "Курилка", "Туалет", "Зона отдыха", "Чай/кофе", "Кондиционер", "Просторный зал", "Парковка", "Аренда оборудования"],
     "halls": {
       "Комната": {
-        "photo": "anyPhoto",
+        "name":"Комната",
+        "photo": "/AllInclude_room.png",
         "square": "100",
         "cost": "100",
         "equipment": [
