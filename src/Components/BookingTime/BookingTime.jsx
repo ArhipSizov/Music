@@ -35,7 +35,6 @@ export default function BookingTime({ item, start, end }) {
     setDate(item + "." + mm);
 
     newDate.setDate(+start);
-    console.log(newDate.getDate());
     editTime();
   }, []);
   return (

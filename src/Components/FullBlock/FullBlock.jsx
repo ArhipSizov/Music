@@ -1,9 +1,45 @@
 import "./FullBlock.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Booking from "../Booking/Booking";
+import {
+  getDatabase,
+  ref,
+  set,
+  onValue,
+  get,
+  child,
+  update,
+  push,
+} from "firebase/database";
 
 export default function FullBlock({ item, setShowBlock }) {
   const [showBookingBlock, setShowBookingBlock] = useState(false);
+  const [favoritesNum, setFavoritesNum] = useState(0);
+
+  let data = null;
+  const database = getDatabase();
+  const starCountRef = ref(database);
+  onValue(starCountRef, (snapshot) => {
+    data = snapshot.val();
+  });
+
+  useEffect(() => {
+    onValue(starCountRef, (snapshot) => {
+      data = snapshot.val();
+      const dataArr = Object.values(data.users);
+      let favoritesHelpNum = 0
+      dataArr.forEach(function (item2) {
+        if (item2.favorites !== undefined) {
+          item2.favorites.forEach(function (item3) {
+            if (item.name == item3) {
+              favoritesHelpNum = favoritesHelpNum + 1
+            }
+          });
+        }
+      });
+      setFavoritesNum(favoritesHelpNum)
+    });
+  }, []);
 
   return (
     <div className="full_block">
@@ -30,7 +66,7 @@ export default function FullBlock({ item, setShowBlock }) {
             </div>
             <p>Площадь: {item.square}м2</p>
             <div>
-              <p>0</p>
+              <p>{favoritesNum}</p>
               <img src="/heart.svg" alt="" />
             </div>
           </div>

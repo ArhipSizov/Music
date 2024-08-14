@@ -16,9 +16,7 @@ export default function Booking({ item, setShowBookingBlock }) {
   function editTime() {
     if (date.getMonth() == month) {
       let newArr = time;
-      console.log(date.getDate());
       newArr.push(date.getDate());
-      console.log(newArr);
       setTime(newArr);
       date.setDate(date.getDate() + 1);
       editTime();

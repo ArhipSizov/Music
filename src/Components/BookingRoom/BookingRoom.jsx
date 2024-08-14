@@ -1,7 +1,6 @@
 import "./BookingRoom.scss";
 
 export default function BookingRoom({item}) {
-    // console.log(item);
   return (
     <div className="booking_room">
       <img className="photo" src={item.photo} alt="" />
