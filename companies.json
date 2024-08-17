@@ -1,5 +1,6 @@
 {
   "13studio": {
+    "id":"0",
     "name": "13studio",
     "logo": "/13studio.png",
     "photo": "/13studio_cab.png",
@@ -17,25 +18,36 @@
     "services": ["Звукозапись", "Сведение", "Мастеринг", "Аранжировка", "Озвучивание"],
     "facilities": ["Wi-Fi", "Парковка", "Чай/кофе", "Курилка"],
     "halls": {
-      "Комната S": {
+      "Room_S": {
+        "id":"0",
+        "trueName":"Room_S",
         "name":"Комната S",
         "photo": "/13studio_room_s.png",
         "square": "30",
         "cost": "25",
         "equipment": [
           {
-            "name": "anyNameEqu",
-            "cost": "anyCost"
+            "id":"0",
+            "name": "Комплект железа PASTE 201 BRONZE UNIVERSAL SET",
+            "cost": "3"
+          },
+          {
+            "id":"1",
+            "name": "Комплект железа SABIAN XSR Performance Set Pro",
+            "cost": "6"
           }
         ],
         "services": [
           {
-            "name": "anyNameServ",
-            "cost": "anyCost"
+            "id":"0",
+            "name": "Видеозапись репетиции (1 час)",
+            "cost": "15"
           }
         ]
       },
-      "Комната L": {
+      "Room_L": {
+        "id":"1",
+        "trueName":"Room_L",
         "name":"Комната L",
         "photo": "/13studio_room_l.png",
         "square": "65",
@@ -46,6 +58,7 @@
     }
   },
   "Nerv-R": {
+    "id":"1",
     "name": "Nerv-R",
     "logo": "/Nerv-R.png",
     "photo": "/Nerv-R_cab.png",
@@ -84,6 +97,7 @@
     }
   },
   "OneThousand": {
+    "id":"2",
     "name": "1000 Records",
     "logo": "/OneThousand.png",
     "photo": "/OneThousand_cab.png",
@@ -122,6 +136,7 @@
     }
   },
   "OvertoneStudio": {
+    "id":"3",
     "name": "Overtone Studio",
     "logo": "/OvertoneStudio.png",
     "photo": "/OvertoneStudio_cab.png",
@@ -178,6 +193,7 @@
     }
   },
   "BAHrecords": {
+    "id":"4",
     "name": "BAH records",
     "logo": "/BAHrecords.png",
     "photo": "/BAHrecords_cab.png",
@@ -216,6 +232,7 @@
     }
   },
   "AllInclude": {
+    "id":"5",
     "name": "All Include",
     "logo": "/AllInclude.png",
     "photo": "/AllInclude_cab.png",

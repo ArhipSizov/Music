@@ -31,6 +31,7 @@ import Settings from "../Pages/Settings/Settings";
 import Orders from "../Pages/Orders/Orders";
 import Messages from "../Pages/Messages/Messages";
 import Favorites from "../Pages/Favorites/Favorites";
+import BankCard from "../Pages/BankCard/BankCard";
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -117,6 +118,7 @@ function App() {
         <Route path="/editing_password" element={<EditingPassword />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/profile/help" element={<Help />} />
+        <Route path="/bank_card" element={<BankCard />} />
         <Route path="*" element={<Error />} />
       </Routes>
       {showNavFooter && <Footer />}

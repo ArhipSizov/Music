@@ -79,7 +79,7 @@ export default function FullBlock({ item, setShowBlock }) {
           <h2>Услуги</h2>
           <div className="list">
             {item.services.map((item) => (
-              <p>{item}</p>
+              <p key={item}>{item}</p>
             ))}
           </div>
         </div>
@@ -87,14 +87,14 @@ export default function FullBlock({ item, setShowBlock }) {
           <h2>Удобства</h2>
           <div className="list">
             {item.facilities.map((item) => (
-              <p>{item}</p>
+              <p key={item}>{item}</p>
             ))}
           </div>
         </div>
         <div>
           <h2>Время работы</h2>
           <p>{item.time_days}</p>
-          <p>{item.time_hours}</p>
+          <p>{item.time_hours_start}:00 - {item.time_hours_end}:00</p>
         </div>
         <div>
           <h2>Контакты</h2>

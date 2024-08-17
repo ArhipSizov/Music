@@ -27,25 +27,24 @@ export default function BookingTime({ item, start, end }) {
   }
 
   useEffect(() => {
-    if (item < 10) item = "0" + item;
+    if (item < 10) item = item;
 
-    var mm = newDate.getMonth() + 1;
-    if (mm < 10) mm = "0" + mm;
 
-    setDate(item + "." + mm);
+
+    setDate(item);
 
     newDate.setDate(+start);
     editTime();
   }, []);
   return (
     <div className="booking_time">
-      <p className="data">{date}</p>
+      <p className="data">{date} число</p>
       {showTime &&
         time.map((item) => (
           <BookingTimeComponent
             item={item}
             {...item}
-            key={item.id}
+            key={item}
           ></BookingTimeComponent>
         ))}
     </div>

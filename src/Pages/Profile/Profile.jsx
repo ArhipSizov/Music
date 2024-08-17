@@ -69,14 +69,14 @@ export default function Profile() {
             <img src="/heart_empty.svg" alt="" />
             <p>Избранное</p>
           </NavLink>
-          <div>
+          {/* <div>
             <img src="/star.svg" alt="" />
             <p>Мои отзывы</p>
-          </div>
-          <div>
+          </div> */}
+          <NavLink className="div" to="/bank_card">
             <img src="/card.svg" alt="" />
             <p>Платежные карты</p>
-          </div>
+          </NavLink>
           <NavLink className="div" to="help">
             <img src="/question.svg" alt="" />
             <p>Помощь</p>

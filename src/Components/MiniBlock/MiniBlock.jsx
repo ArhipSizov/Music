@@ -22,15 +22,11 @@ export default function MiniBlock({
   favorites,
   setFavorites,
   keyFavorites,
-  classBlock
+  classBlock,
 }) {
   const [showFullBlock, setShowFullBlock] = useState(false);
   const [showBlock, setShowBlock] = useState(false);
   const [heart, setHeart] = useState("/heart_empty.svg");
-
-
-
-
 
   class RegExp1 extends RegExp {
     constructor(str) {
@@ -102,23 +98,23 @@ export default function MiniBlock({
       }
       if (classBlock == "favorites") {
         if (item == name) {
-          setShowBlock(true)
+          setShowBlock(true);
         }
       }
     });
   }, []);
 
   function updateDatabase(params) {
-    let newArr = []
+    let newArr = [];
     favorites.forEach(function (item) {
-      newArr.push(item)
+      newArr.push(item);
     });
     if (params == "add") {
-      newArr.push(name)
-    }else{
+      newArr.push(name);
+    } else {
       newArr = newArr.filter((newArr) => newArr !== name);
     }
-    setFavorites(newArr)
+    setFavorites(newArr);
     const updates = {};
     const postData = newArr;
     updates["/users/" + keyFavorites + "/favorites/"] = postData;
@@ -170,14 +166,13 @@ export default function MiniBlock({
           </div>
           <div className="title">
             {services.map((item) => (
-              <p>{item}, </p>
+              <p key={item}>{item}, </p>
             ))}
           </div>
           <div className="bottom">
             <p>Звукозапись</p>
-            <p className="cost_company">
-              от {cost} <p>руб/час</p>
-            </p>
+            <p className="cost_company">от {cost}</p>
+            <p>руб/час</p>
           </div>
         </div>
       )}
