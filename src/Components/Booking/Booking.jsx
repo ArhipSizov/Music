@@ -2,6 +2,7 @@ import "./Booking.scss";
 import BookingRoom from "../BookingRoom/BookingRoom";
 import BookingTime from "../BookingTime/BookingTime";
 import EquipmentServices from "../EquipmentServices/EquipmentServices";
+import BookingPay from "../BookingPay/BookingPay";
 import { useState, useEffect } from "react";
 
 export default function Booking({ item, setShowBookingBlock }) {
@@ -11,6 +12,8 @@ export default function Booking({ item, setShowBookingBlock }) {
 
   const [time, setTime] = useState([]);
   const [showTime, setShowTime] = useState(false);
+
+  const [showPay, setShowPay] = useState(false);
 
   const [room, setRoom] = useState("Room_S");
   const [cost, setCost] = useState(0);
@@ -28,8 +31,8 @@ export default function Booking({ item, setShowBookingBlock }) {
     block(blockConst);
   }
 
-  let arrRoomEquipment = eval("item.halls." + room + ".equipment")
-  let arrRoomServices = eval("item.halls." + room + ".services")
+  let arrRoomEquipment = eval("item.halls." + room + ".equipment");
+  let arrRoomServices = eval("item.halls." + room + ".services");
 
   const date = new Date();
   const [month, setMonth] = useState(date.getMonth());
@@ -38,7 +41,7 @@ export default function Booking({ item, setShowBookingBlock }) {
   const halls = Object.values(item.halls);
 
   function editTime(help) {
-    help = help + 1
+    help = help + 1;
     if (help < 10) {
       let newArr = time;
       date.setDate(date.getDate() + 1);
@@ -50,26 +53,27 @@ export default function Booking({ item, setShowBookingBlock }) {
     }
   }
   useEffect(() => {
-    let help = 0
+    let help = 0;
     editTime(help);
   }, []);
 
   function name() {
-    let newCost = +costRoom
+    let newCost = +costRoom;
     services.forEach((item) => {
-      newCost = newCost + +item
+      newCost = newCost + +item;
     });
     equipment.forEach((item) => {
-      newCost = newCost + +item
+      newCost = newCost + +item;
     });
-    newCost = newCost * costTime.length
-    setCost(newCost)
+    newCost = newCost * costTime.length;
+    setCost(newCost);
   }
   setTimeout(() => {
-    name()
+    name();
   }, 1);
   return (
-    <div onClick={() => name()}  className="booking">
+    <div onClick={() => name()} className="booking">
+      {showPay && <BookingPay cost={cost} setShowPay={setShowPay} item={item}></BookingPay>}
       <div onClick={() => setShowBookingBlock(false)} className="nav">
         <img src="/backAlt.svg" alt="" />
         <h1>Бронирование</h1>
@@ -105,7 +109,14 @@ export default function Booking({ item, setShowBookingBlock }) {
             <h2>Выбор зала</h2>
             <div className="rooms">
               {halls.map((item) => (
-                <BookingRoom item={item} {...item} key={item.id} room={room} setRoom={setRoom} setCostRoom={setCostRoom}></BookingRoom>
+                <BookingRoom
+                  item={item}
+                  {...item}
+                  key={item.id}
+                  room={room}
+                  setRoom={setRoom}
+                  setCostRoom={setCostRoom}
+                ></BookingRoom>
               ))}
             </div>
           </div>
@@ -128,7 +139,7 @@ export default function Booking({ item, setShowBookingBlock }) {
       )}
       <div className="booking_footer">
         <p>{cost}р.</p>
-        <div>
+        <div onClick={() => setShowPay(true)}>
           <p>Оплатить</p>
         </div>
       </div>
@@ -165,14 +176,26 @@ export default function Booking({ item, setShowBookingBlock }) {
           {activeBlock34 && (
             <div className="body">
               {arrRoomEquipment.map((item) => (
-                <EquipmentServices item={item} {...item} key={item.id} arr={equipment} setArr={setEquipment}></EquipmentServices>
+                <EquipmentServices
+                  item={item}
+                  {...item}
+                  key={item.id}
+                  arr={equipment}
+                  setArr={setEquipment}
+                ></EquipmentServices>
               ))}
             </div>
           )}
           {!activeBlock34 && (
             <div className="body">
               {arrRoomServices.map((item) => (
-                <EquipmentServices item={item} {...item} key={item.id} arr={services} setArr={setServices}></EquipmentServices>
+                <EquipmentServices
+                  item={item}
+                  {...item}
+                  key={item.id}
+                  arr={services}
+                  setArr={setServices}
+                ></EquipmentServices>
               ))}
             </div>
           )}
