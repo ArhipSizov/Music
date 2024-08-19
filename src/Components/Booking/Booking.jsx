@@ -15,7 +15,7 @@ export default function Booking({ item, setShowBookingBlock }) {
 
   const [showPay, setShowPay] = useState(false);
 
-  const [room, setRoom] = useState("Room_S");
+  const [room, setRoom] = useState("Room");
   const [cost, setCost] = useState(0);
   const [costRoom, setCostRoom] = useState(0);
 
@@ -73,7 +73,13 @@ export default function Booking({ item, setShowBookingBlock }) {
   }, 1);
   return (
     <div onClick={() => name()} className="booking">
-      {showPay && <BookingPay cost={cost} setShowPay={setShowPay} item={item}></BookingPay>}
+      {showPay && (
+        <BookingPay
+          cost={cost}
+          setShowPay={setShowPay}
+          item={item}
+        ></BookingPay>
+      )}
       <div onClick={() => setShowBookingBlock(false)} className="nav">
         <img src="/backAlt.svg" alt="" />
         <h1>Бронирование</h1>
