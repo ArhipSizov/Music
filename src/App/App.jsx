@@ -91,7 +91,8 @@ function App() {
             const number = item.number
             const key = item.key
             const favorites = item.favorites
-            dispatch(addUser({ email, pasvord, name, number, key, favorites }));
+            const card = item.card
+            dispatch(addUser({ email, pasvord, name, number, key, favorites, card }));
           }
         });
       });

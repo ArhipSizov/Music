@@ -15,6 +15,7 @@ const slice = createSlice({
                 number: action.payload.number,
                 key: action.payload.key,
                 favorites: action.payload.favorites,
+                card: action.payload.card,
             })
         },
     }

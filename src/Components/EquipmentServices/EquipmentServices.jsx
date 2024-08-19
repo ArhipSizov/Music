@@ -25,7 +25,6 @@ export default function EquipmentServices({ name, cost, arr, setArr }) {
 
     setArr(newArr);
 
-    console.log(newArr);
   }
   return (
     <div className={classBlock} onClick={() => functionName()}>

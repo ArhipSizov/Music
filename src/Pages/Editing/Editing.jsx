@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { database } from "../../Services/store/index";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import App from "../../Components/CroptImage/App"
+import App from "../../Components/CroptImage/App";
 
 export default function Editing() {
   const navigate = useNavigate();
@@ -23,6 +23,8 @@ export default function Editing() {
   const [key, setKey] = useState("");
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const [favorites, setFavorites] = useState([]);
+  const [card, setCard] = useState({});
 
   const emailArr = useSelector((state) => state.email.email);
   if (email == "") {
@@ -32,9 +34,14 @@ export default function Editing() {
       setKey(element.key);
       setEmail(element.email);
       setPasvord(element.password);
+      if (element.favorites !== undefined) {
+        setFavorites(element.favorites);
+      }
+      if (element.card !== undefined) {
+        setCard(element.card);
+      }
     });
   }
-
 
   function updateDatabase(params) {
     const updates = {};
@@ -46,9 +53,11 @@ export default function Editing() {
       key: key,
       password: pasvord,
       name: name,
+      favorites: favorites,
+      card: card,
     };
     updates["/users/" + key] = postData;
-    navigate("/profile")
+    navigate("/profile");
     return update(ref(database), updates);
   }
   return (
@@ -57,7 +66,7 @@ export default function Editing() {
         <img src="/backAlt.svg" alt="" />
         <h1>Редактирование профиля</h1>
       </NavLink>
-      <form>
+      <form onSubmit={() => updateDatabase()}>
         <input
           value={name}
           onChange={(event) => setName(event.target.value)}
@@ -70,10 +79,7 @@ export default function Editing() {
           type="text"
           placeholder="Номер телефона"
         />
-        <div
-          onClick={() => updateDatabase()}
-          type="submit"
-        >Подтвердить</div>
+        <input className="button" placeholder="Подтвердить" type="submit" />
       </form>
       <App></App>
     </div>
