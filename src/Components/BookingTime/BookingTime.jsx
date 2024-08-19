@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import BookingTimeComponent from "../BookingTimeComponent/BookingTimeComponent";
 import "./BookingTime.scss";
 
-export default function BookingTime({ item, start, end }) {
+export default function BookingTime({ item, start, end, costTime, setCostTime }) {
   const [time, setTime] = useState([]);
   const [showTime, setShowTime] = useState(false);
   const [helpI, setHelpI] = useState(0);
@@ -44,7 +44,9 @@ export default function BookingTime({ item, start, end }) {
           <BookingTimeComponent
             item={item}
             {...item}
-            key={item}
+            key={item.id}
+            costTime={costTime}
+            setCostTime={setCostTime}
           ></BookingTimeComponent>
         ))}
     </div>

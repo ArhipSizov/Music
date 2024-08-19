@@ -6,7 +6,7 @@ export default function EquipmentServices({ name, cost, arr, setArr }) {
 
   useEffect(() => {
     arr.forEach(function (item) {
-      if (item  == name) {
+      if (item  == cost) {
         setClassBlock("equipment_services equipment_services_active")
       }
     });
@@ -17,10 +17,10 @@ export default function EquipmentServices({ name, cost, arr, setArr }) {
 
     if (classBlock == "equipment_services") {
       setClassBlock("equipment_services equipment_services_active");
-      newArr.push(name);
+      newArr.push(cost);
     } else {
       setClassBlock("equipment_services");
-      newArr = newArr.filter((newArr) => newArr !== name);
+      newArr = newArr.filter((newArr) => newArr !== cost);
     }
 
     setArr(newArr);

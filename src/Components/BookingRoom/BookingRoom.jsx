@@ -1,11 +1,12 @@
 import "./BookingRoom.scss";
 import { useEffect, useState } from "react";
 
-export default function BookingRoom({ item, setRoom, room }) {
+export default function BookingRoom({ item, setRoom, room, setCostRoom }) {
   const [active, setActive] = useState("booking_room");
   useEffect(() => {
     if (item.trueName == room) {
       setActive("booking_room booking_room_active");
+      setCostRoom(item.cost)
     } else {
       setActive("booking_room");
     }
