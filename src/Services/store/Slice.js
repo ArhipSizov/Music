@@ -16,6 +16,7 @@ const slice = createSlice({
                 key: action.payload.key,
                 favorites: action.payload.favorites,
                 card: action.payload.card,
+                rooms: action.payload.rooms,
             })
         },
     }

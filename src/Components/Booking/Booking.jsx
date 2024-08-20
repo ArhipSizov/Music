@@ -78,6 +78,7 @@ export default function Booking({ item, setShowBookingBlock }) {
           cost={cost}
           setShowPay={setShowPay}
           item={item}
+          room={room}
         ></BookingPay>
       )}
       <div onClick={() => setShowBookingBlock(false)} className="nav">

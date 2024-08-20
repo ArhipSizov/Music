@@ -68,12 +68,14 @@ export default function Editing() {
       </NavLink>
       <form onSubmit={() => updateDatabase()}>
         <input
+        required
           value={name}
           onChange={(event) => setName(event.target.value)}
           type="text"
           placeholder="Имя  и фамилия"
         />
         <input
+        required
           value={number}
           onChange={(event) => setNumber(event.target.value)}
           type="text"

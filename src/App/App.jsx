@@ -92,7 +92,8 @@ function App() {
             const key = item.key
             const favorites = item.favorites
             const card = item.card
-            dispatch(addUser({ email, pasvord, name, number, key, favorites, card }));
+            const rooms = item.rooms
+            dispatch(addUser({ email, pasvord, name, number, key, favorites, card, rooms }));
           }
         });
       });
