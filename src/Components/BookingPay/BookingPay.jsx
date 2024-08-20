@@ -29,7 +29,6 @@ export default function BookingPay({ cost, setShowPay, item, room }) {
     });
   }
 
-  console.log(item.name);
   function updateDatabase() {
     const updates = {};
 

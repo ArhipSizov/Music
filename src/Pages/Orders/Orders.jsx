@@ -9,6 +9,8 @@ export default function Orders() {
   const [active1, setActive1] = useState("active");
   const [active2, setActive2] = useState("");
 
+  const [showOrder, setShowOrder] = useState(true);
+
   const [key, setKey] = useState("");
   const [rooms, setRooms] = useState([]);
 
@@ -21,14 +23,16 @@ export default function Orders() {
       }
     });
   }
-  console.log(rooms);
+
   function showOrderFunction(num) {
     if (num == 1) {
       setActive1("active");
       setActive2("");
+      setShowOrder(true)
     } else {
       setActive1("");
       setActive2("active");
+      setShowOrder(false)
     }
   }
   return (
@@ -44,15 +48,17 @@ export default function Orders() {
           </p>
         </div>
       </div>
-      <div className="OrdersComponent_all">
-        {Object.values(rooms).map((item) => (
-          <OrdersComponent
-            item={item}
-            {...item}
-            key={item.number}
-          ></OrdersComponent>
-        ))}
-      </div>
+      {showOrder && (
+        <div className="OrdersComponent_all">
+          {Object.values(rooms).map((item) => (
+            <OrdersComponent
+              item={item}
+              {...item}
+              key={item.number}
+            ></OrdersComponent>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
