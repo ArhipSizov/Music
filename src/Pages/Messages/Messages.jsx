@@ -21,6 +21,7 @@ export default function Messages() {
         const docRef = await setDoc(doc(db, "coments", num), {
           coment: coment,
           time: time,
+          id: num,
         });
         location.reload();
       } catch (e) {
