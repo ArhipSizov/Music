@@ -58,7 +58,7 @@ export default function FullBlock({ item, setShowBlock }) {
           <img className="logo_img" src={item.logo} alt="" />
           <div className="top_information_no_img">
             <p className="name">{item.name}</p>
-            <p>0 отзывов</p>
+            <p></p>
             <p>{item.area}</p>
             <div>
               <p className="p_alt">4,8</p>

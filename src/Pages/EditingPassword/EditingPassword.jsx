@@ -14,11 +14,8 @@ export default function EditingPassword() {
     sendPasswordResetEmail(auth, email)
       .then(() => {
         setP("")
-        // Password reset email sent!
-        // ..
       })
       .catch((error) => {
-        // ..
       });
   }
   return (

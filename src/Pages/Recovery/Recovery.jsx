@@ -87,13 +87,6 @@ export default function Recovery() {
     setShowRegister1(false);
     setShowRegister2(true);
     sendPasswordResetEmail(auth, email)
-      .then(() => {
-        // Password reset email sent!
-        // ..
-      })
-      .catch((error) => {
-        // ..
-      });
   }
   return (
     <div>
