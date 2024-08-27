@@ -6,7 +6,6 @@ import "./Style/index.scss";
 import firebaseConfig from "../firebaseConfig";
 import { initializeApp } from "firebase/app";
 import { initializeFirestore } from "firebase/firestore";
-import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { Provider } from "react-redux";
 import store from "./Services/store";

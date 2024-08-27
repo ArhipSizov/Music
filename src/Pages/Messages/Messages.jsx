@@ -7,18 +7,30 @@ import { db } from "../../main";
 
 import { useState } from "react";
 
+import { useSelector } from "react-redux";
+
 export default function Messages() {
   const [coment, setComent] = useState("");
   const [show, setShow] = useState(false);
   const [dbArr, setDbArr] = useState([]);
+  const [email, setEmail] = useState("");
 
+  const emailArr = useSelector((state) => state.email.email);
+  setTimeout(() => {
+    
+  
+  emailArr.forEach((element) => {
+    setEmail(element.email);
+  });
+}, 1500);
   async function addDocFunction() {
-    if (coment !== "") {
+    if (coment !== "" && email !== "") {      
       const now = new Date();
       const num = String(dbArr.length);
       const time = now.getHours() + ":" + now.getMinutes();
       try {
         const docRef = await setDoc(doc(db, "coments", num), {
+          email: email,
           coment: coment,
           time: time,
           id: num,
@@ -64,3 +76,4 @@ export default function Messages() {
     </div>
   );
 }
+
