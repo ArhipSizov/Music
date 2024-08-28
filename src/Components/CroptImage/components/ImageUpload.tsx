@@ -20,9 +20,9 @@ interface IMGProps{
 const ImageUpload = (props: IMGProps) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
-    const emailArr = useSelector((state) => state.email.email);
+    const userArr = useSelector((state) => state.user.user);
     if (email == "") {
-      emailArr.forEach((element) => {
+        userArr.forEach((element) => {
         setEmail(element.email);
     });
 }
