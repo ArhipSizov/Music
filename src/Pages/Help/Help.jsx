@@ -1,12 +1,14 @@
-import "./Help.scss";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+
+import "./Help.scss";
 
 export default function Help() {
   const [showText1, setShowText1] = useState("none");
   const [showText2, setShowText2] = useState("none");
   const [showText3, setShowText3] = useState("none");
   const [showText4, setShowText4] = useState("none");
+  
   const [showImg1, setShowImg1] = useState("");
   const [showImg2, setShowImg2] = useState("");
   const [showImg3, setShowImg3] = useState("");

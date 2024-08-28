@@ -1,21 +1,13 @@
-import "./BankCard.scss";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-import {
-  getDatabase,
-  ref,
-  set,
-  onValue,
-  get,
-  child,
-  update,
-  push,
-} from "firebase/database";
+import { ref, update } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { database } from "../../Services/store/index";
 
 import BankCardComponent from "../../Components/BankCardComponent/BankCardComponent";
+
+import "./BankCard.scss";
 
 export default function BankCard() {
   const navigate = useNavigate();
@@ -29,9 +21,9 @@ export default function BankCard() {
   const [key, setKey] = useState("");
   const [card, setCard] = useState({});
 
-  const emailArr = useSelector((state) => state.email.email);
+  const userArr = useSelector((state) => state.user.user);
   if (key == "") {
-    emailArr.forEach((element) => {
+    userArr.forEach((element) => {
       setKey(element.key);
       if (element.card !== undefined) {
         setCard(element.card);

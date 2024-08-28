@@ -1,6 +1,7 @@
-import "./Settings.scss";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+
+import "./Settings.scss";
 
 export default function Settings() {
   const [showText1, setShowText1] = useState("none");

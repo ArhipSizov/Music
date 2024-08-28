@@ -1,6 +1,7 @@
-import "./Filter.scss";
 import { useState } from "react";
 import { useEffect } from "react";
+
+import "./Filter.scss";
 
 export default function Filter({
   setShowFilter,

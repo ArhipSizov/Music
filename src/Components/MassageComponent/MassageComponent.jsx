@@ -1,14 +1,17 @@
-import "./MassageComponent.scss";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+
+import "./MassageComponent.scss";
 
 export default function MassageComponent({ coment, time, email }) {
   const [trueEmail, setTrueEmail] = useState("");
   const [classMassage, setClassMassage] = useState("");
   const [userEmail, setUserEmail] = useState(true);
-  const emailArr = useSelector((state) => state.email.email);
+
+  const userArr = useSelector((state) => state.user.user);
+  
   if (trueEmail == "") {
-    emailArr.forEach((element) => {
+    userArr.forEach((element) => {
       setTrueEmail(element.email);
     });
   } else if (classMassage == "") {

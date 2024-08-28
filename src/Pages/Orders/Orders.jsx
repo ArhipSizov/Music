@@ -1,9 +1,9 @@
-import "./Orders.scss";
 import { useState } from "react";
-import { database } from "../../Services/store/index";
 import { useSelector } from "react-redux";
 
 import OrdersComponent from "../../Components/OrdersComponent/OrdersComponent";
+
+import "./Orders.scss";
 
 export default function Orders() {
   const [active1, setActive1] = useState("active");
@@ -14,9 +14,9 @@ export default function Orders() {
   const [key, setKey] = useState("");
   const [rooms, setRooms] = useState([]);
 
-  const emailArr = useSelector((state) => state.email.email);
+  const userArr = useSelector((state) => state.user.user);
   if (key == "") {
-    emailArr.forEach((element) => {
+    userArr.forEach((element) => {
       setKey(element.key);
       if (element.rooms !== undefined) {
         setRooms(element.rooms);

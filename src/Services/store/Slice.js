@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
-    name: 'email',
+    name: 'user',
     initialState:{
-        email:[]
+        user:[]
     },
     reducers:{
         addUser(state, action) {
-            state.email.push({
+            state.user.push({
                 id: new Date().toISOString(),
                 email: action.payload.email,
                 password: action.payload.pasvord,

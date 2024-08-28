@@ -1,13 +1,11 @@
-import "./Messages.scss";
+import { collection, setDoc, getDocs, doc } from "firebase/firestore";
+import { db } from "../../main";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+
 import MassageComponent from "../../Components/MassageComponent/MassageComponent";
 
-import { collection, setDoc, getDocs, doc } from "firebase/firestore";
-
-import { db } from "../../main";
-
-import { useState } from "react";
-
-import { useSelector } from "react-redux";
+import "./Messages.scss";
 
 export default function Messages() {
   const [coment, setComent] = useState("");
@@ -15,16 +13,14 @@ export default function Messages() {
   const [dbArr, setDbArr] = useState([]);
   const [email, setEmail] = useState("");
 
-  const emailArr = useSelector((state) => state.email.email);
+  const userArr = useSelector((state) => state.user.user);
   setTimeout(() => {
-    
-  
-  emailArr.forEach((element) => {
-    setEmail(element.email);
-  });
-}, 1500);
+    userArr.forEach((element) => {
+      setEmail(element.email);
+    });
+  }, 1500);
   async function addDocFunction() {
-    if (coment !== "" && email !== "") {      
+    if (coment !== "" && email !== "") {
       const now = new Date();
       const num = String(dbArr.length);
       const time = now.getHours() + ":" + now.getMinutes();
@@ -76,4 +72,3 @@ export default function Messages() {
     </div>
   );
 }
-

@@ -1,23 +1,15 @@
-import "./Editing.scss";
 import { NavLink } from "react-router-dom";
-import {
-  getDatabase,
-  ref,
-  set,
-  onValue,
-  get,
-  child,
-  update,
-  push,
-} from "firebase/database";
+import { ref, update } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 import { database } from "../../Services/store/index";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
+
 import App from "../../Components/CroptImage/App";
 
+import "./Editing.scss";
+
 export default function Editing() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [pasvord, setPasvord] = useState("");
   const [key, setKey] = useState("");
@@ -26,9 +18,10 @@ export default function Editing() {
   const [favorites, setFavorites] = useState([]);
   const [card, setCard] = useState({});
 
-  const emailArr = useSelector((state) => state.email.email);
+  const navigate = useNavigate();
+  const userArr = useSelector((state) => state.user.user);
   if (email == "") {
-    emailArr.forEach((element) => {
+    userArr.forEach((element) => {
       setName(element.name);
       setNumber(element.number);
       setKey(element.key);
@@ -68,14 +61,14 @@ export default function Editing() {
       </NavLink>
       <form onSubmit={() => updateDatabase()}>
         <input
-        required
+          required
           value={name}
           onChange={(event) => setName(event.target.value)}
           type="text"
           placeholder="Имя  и фамилия"
         />
         <input
-        required
+          required
           value={number}
           onChange={(event) => setNumber(event.target.value)}
           type="text"

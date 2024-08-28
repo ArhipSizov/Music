@@ -1,15 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App/App";
-import "./Style/index.scss";
-import firebaseConfig from "../firebaseConfig";
 import { initializeApp } from "firebase/app";
 import { initializeFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
 import { Provider } from "react-redux";
+
+import React from "react";
+import ReactDOM from "react-dom/client";
 import store from "./Services/store";
 import firebase from "firebase/compat/app";
+import App from "./App/App";
+import firebaseConfig from "../firebaseConfig";
+
+import "./Style/index.scss";
 
 firebase.initializeApp(firebaseConfig);
 initializeApp(firebaseConfig);

@@ -1,10 +1,11 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { Cropper } from "react-cropper";
-import "cropperjs/dist/cropper.css";
-import "./styles/imageupload.css"
 import { getStorage, ref, uploadString } from "firebase/storage";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+import "cropperjs/dist/cropper.css";
+import "./styles/imageupload.css"
 
 interface IMGProps{
     setCroppedImage: (value: string) => void;

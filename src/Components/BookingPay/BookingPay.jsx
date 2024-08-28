@@ -1,27 +1,19 @@
-import "./BookingPay.scss";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import {
-  getDatabase,
-  ref,
-  set,
-  onValue,
-  get,
-  child,
-  update,
-  push,
-} from "firebase/database";
+import { ref, update } from "firebase/database";
 import { database } from "../../Services/store/index";
 import { NavLink } from "react-router-dom";
+
+import "./BookingPay.scss";
 
 export default function BookingPay({ cost, setShowPay, item, room }) {
   const [key, setKey] = useState("");
   const [card, setCard] = useState("");
 
   const [showPayCard, setShowPayCard] = useState();
-  const emailArr = useSelector((state) => state.email.email);
+  const userArr = useSelector((state) => state.user.user);
   if (key == "") {
-    emailArr.forEach((element) => {
+    userArr.forEach((element) => {
       setKey(element.key);
       if (element.card !== undefined) {
         setCard(element.card);
@@ -83,7 +75,9 @@ export default function BookingPay({ cost, setShowPay, item, room }) {
                 <input type="radio" name="field2" />
               </div>
             ))}
-            <NavLink className="NavLink" to="/bank_card">+ Добавить банковскую карточку</NavLink>
+            <NavLink className="NavLink" to="/bank_card">
+              + Добавить банковскую карточку
+            </NavLink>
           </form>
         )}
         <input placeholder="Забронировать" className="button" type="submit" />

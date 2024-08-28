@@ -1,10 +1,11 @@
-import "./Search.scss";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+
 import Filter from "../../Components/Filter/Filter";
 import MiniBlock from "../../Components/MiniBlock/MiniBlock";
 import arrCompanies from "../../../companies.json";
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useState } from "react";
+
+import "./Search.scss";
 
 export default function Search() {
   const [input, setInput] = useState("");
@@ -15,18 +16,18 @@ export default function Search() {
   const [favorites, setFavorites] = useState([]);
   const [key, setKey] = useState("");
 
-  const emailArr = useSelector((state) => state.email.email);
+  const [minCost, setMinCost] = useState(20);
+  const [maxCost, setMaxCost] = useState(100);
+
+  const userArr = useSelector((state) => state.user.user);
   if (key == "") {
-    emailArr.forEach((element) => {
+    userArr.forEach((element) => {
       if (element.favorites !== undefined) {
         setFavorites(element.favorites);
       }
       setKey(element.key);
     });
   }
-
-  const [minCost, setMinCost] = useState(20);
-  const [maxCost, setMaxCost] = useState(100);
 
   const companies = Object.values(arrCompanies);
 

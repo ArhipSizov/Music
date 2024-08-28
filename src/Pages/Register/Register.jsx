@@ -1,12 +1,9 @@
-import "./Register.scss";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 import { addUser } from "../../Services/store/Slice";
 import { addUserDB } from "../../Services/fbUsers";
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -14,24 +11,15 @@ import {
 } from "firebase/auth";
 import { useSelector } from "react-redux";
 
-export default function Register() {
-  const navigate = useNavigate();
+import "./Register.scss";
 
+export default function Register() {
   const [email, setEmail] = useState("");
   const [pasvord, setPasvord] = useState("");
   const [name, setName] = useState("Аноним");
   const [number, setNumber] = useState("нету");
   const [showRegister1, setShowRegister1] = useState(true);
   const [showRegister2, setShowRegister2] = useState(false);
-
-  const dispatch = useDispatch();
-
-  const addTask = () => dispatch(addUser({ email, pasvord, name, number }));
-
-  function showRegisterFunction() {
-    setShowRegister1(false);
-    setShowRegister2(true);
-  }
 
   const [type, setType] = useState("true");
   const [input1, setInput1] = useState("false");
@@ -42,9 +30,19 @@ export default function Register() {
   const [butFalse, setButFalse] = useState("butFalse");
   const [help, setHelp] = useState(0);
 
-  const emailArr = useSelector((state) => state.email.email);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  emailArr.forEach((element) => {
+  const addTask = () => dispatch(addUser({ email, pasvord, name, number }));
+
+  function showRegisterFunction() {
+    setShowRegister1(false);
+    setShowRegister2(true);
+  }
+
+  const userArr = useSelector((state) => state.user.user);
+
+  userArr.forEach((element) => {
     if (help == 0) {
       setHelp(element.email);
       setEmail(element.email);
@@ -55,7 +53,7 @@ export default function Register() {
     event.preventDefault();
     const auth = getAuth();
     setTimeout(() => {
-      setError("error")
+      setError("error");
     }, 2000);
     createUserWithEmailAndPassword(auth, email, pasvord).then(() => {
       updateProfile(auth.currentUser, {
@@ -65,8 +63,8 @@ export default function Register() {
         navigate("/profile");
       });
     });
-    addUserDB({email, pasvord});
-    addTask()
+    addUserDB({ email, pasvord });
+    addTask();
   }
 
   function conditionPassword() {

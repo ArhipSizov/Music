@@ -1,16 +1,9 @@
-import "./FullBlock.scss";
 import { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+
 import Booking from "../Booking/Booking";
-import {
-  getDatabase,
-  ref,
-  set,
-  onValue,
-  get,
-  child,
-  update,
-  push,
-} from "firebase/database";
+
+import "./FullBlock.scss";
 
 export default function FullBlock({ item, setShowBlock }) {
   const [showBookingBlock, setShowBookingBlock] = useState(false);
@@ -27,17 +20,17 @@ export default function FullBlock({ item, setShowBlock }) {
     onValue(starCountRef, (snapshot) => {
       data = snapshot.val();
       const dataArr = Object.values(data.users);
-      let favoritesHelpNum = 0
+      let favoritesHelpNum = 0;
       dataArr.forEach(function (item2) {
         if (item2.favorites !== undefined) {
           item2.favorites.forEach(function (item3) {
             if (item.name == item3) {
-              favoritesHelpNum = favoritesHelpNum + 1
+              favoritesHelpNum = favoritesHelpNum + 1;
             }
           });
         }
       });
-      setFavoritesNum(favoritesHelpNum)
+      setFavoritesNum(favoritesHelpNum);
     });
   }, []);
 
@@ -48,7 +41,9 @@ export default function FullBlock({ item, setShowBlock }) {
           <Booking item={item} setShowBookingBlock={setShowBookingBlock} />
         </div>
       )}
-      <div onClick={() => setShowBookingBlock(true)} className="button">Заказать</div>
+      <div onClick={() => setShowBookingBlock(true)} className="button">
+        Заказать
+      </div>
       <div className="nav">
         <img onClick={() => setShowBlock(false)} src="/backAlt.svg" alt="" />
       </div>
@@ -94,7 +89,9 @@ export default function FullBlock({ item, setShowBlock }) {
         <div>
           <h2>Время работы</h2>
           <p>{item.time_days}</p>
-          <p>{item.time_hours_start}:00 - {item.time_hours_end}:00</p>
+          <p>
+            {item.time_hours_start}:00 - {item.time_hours_end}:00
+          </p>
         </div>
         <div>
           <h2>Контакты</h2>

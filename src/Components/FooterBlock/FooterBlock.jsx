@@ -1,5 +1,6 @@
-import "./FooterBlock.scss";
 import { NavLink } from 'react-router-dom';
+
+import "./FooterBlock.scss";
 
 export default function FooterBlock({img, text, link, clas, img_active, clas_active}) {
   return (

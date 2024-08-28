@@ -1,6 +1,5 @@
 import { database } from "./store/index"
 
-
 export const addUserDB = (userData) => {
     const ref = database.ref("users").push();
     const newKey = ref.key;

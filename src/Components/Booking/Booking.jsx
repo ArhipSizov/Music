@@ -1,9 +1,11 @@
-import "./Booking.scss";
+import { useState, useEffect } from "react";
+
 import BookingRoom from "../BookingRoom/BookingRoom";
 import BookingTime from "../BookingTime/BookingTime";
 import EquipmentServices from "../EquipmentServices/EquipmentServices";
 import BookingPay from "../BookingPay/BookingPay";
-import { useState, useEffect } from "react";
+
+import "./Booking.scss";
 
 export default function Booking({ item, setShowBookingBlock }) {
   const [equipment, setEquipment] = useState([]);
@@ -35,8 +37,6 @@ export default function Booking({ item, setShowBookingBlock }) {
   let arrRoomServices = eval("item.halls." + room + ".services");
 
   const date = new Date();
-  const [month, setMonth] = useState(date.getMonth());
-  const [day, setDay] = useState(date.getDate());
 
   const halls = Object.values(item.halls);
 

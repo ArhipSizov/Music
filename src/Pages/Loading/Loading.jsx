@@ -1,6 +1,7 @@
-import "./Loading.scss";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import "./Loading.scss";
 
 export default function Loading() {
   const [br1, setBr1] = useState("br1");
@@ -11,6 +12,7 @@ export default function Loading() {
   const [br6, setBr6] = useState("br6");
   const [br7, setBr7] = useState("br7");
   const [name, setName] = useState("name");
+  
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {

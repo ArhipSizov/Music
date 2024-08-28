@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
+
 import BookingTimeComponent from "../BookingTimeComponent/BookingTimeComponent";
+
 import "./BookingTime.scss";
 
 export default function BookingTime({ item, start, end, costTime, setCostTime }) {
   const [time, setTime] = useState([]);
   const [showTime, setShowTime] = useState(false);
-  const [helpI, setHelpI] = useState(0);
 
   const newDate = new Date();
   const [date, setDate] = useState();
   const [month, setMonth] = useState(newDate.getMonth());
-  const [day, setDay] = useState(newDate.getDate());
 
   function editTime() {
     if (newDate.getMonth() == month) {

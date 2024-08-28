@@ -1,8 +1,10 @@
-import "./MiniBlock.scss";
 import { useState, useEffect } from "react";
-import FullBlock from "../FullBlock/FullBlock";
 import { ref, update } from "firebase/database";
 import { database } from "../../Services/store/index";
+
+import FullBlock from "../FullBlock/FullBlock";
+
+import "./MiniBlock.scss";
 
 export default function MiniBlock({
   name,

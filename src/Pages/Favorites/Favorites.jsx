@@ -1,18 +1,21 @@
-import "./Favorites.scss";
 import { NavLink } from "react-router-dom";
-import MiniBlock from "../../Components/MiniBlock/MiniBlock";
-import arrCompanies from "../../../companies.json";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
+import MiniBlock from "../../Components/MiniBlock/MiniBlock";
+import arrCompanies from "../../../companies.json";
+
+import "./Favorites.scss";
+
 export default function Favorites() {
-    const companies = Object.values(arrCompanies);
     const [favorites, setFavorites] = useState([]);
     const [key, setKey] = useState("");
 
-    const emailArr = useSelector((state) => state.email.email);
+    const companies = Object.values(arrCompanies);
+
+    const userArr = useSelector((state) => state.user.user);
     if (key == "") {
-      emailArr.forEach((element) => {
+      userArr.forEach((element) => {
         if (element.favorites !== undefined) {
           setFavorites(element.favorites);
         }

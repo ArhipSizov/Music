@@ -1,9 +1,11 @@
-import "./EditingPassword.scss";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { useState } from "react";
 
+import "./EditingPassword.scss";
+
 export default function EditingPassword() {
   const [p, setP] = useState("none");
+  
   const auth = getAuth();
 
   const user = auth.currentUser;

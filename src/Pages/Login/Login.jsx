@@ -1,8 +1,9 @@
-import "./Login.scss";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+import "./Login.scss";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -12,6 +13,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("none");
   const [pasvord, setPasvord] = useState("");
+
+  const [anim, setAnim] = useState("anim");
 
   function getLoginData(event) {
     event.preventDefault();
@@ -28,7 +31,6 @@ export default function Login() {
       });
   }
 
-  const [anim, setAnim] = useState("anim");
   useEffect(() => {
     setTimeout(() => {
       setAnim("none");

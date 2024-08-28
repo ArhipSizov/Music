@@ -1,5 +1,6 @@
-import "./EquipmentServices.scss";
 import { useEffect, useState } from "react";
+
+import "./EquipmentServices.scss";
 
 export default function EquipmentServices({ name, cost, arr, setArr }) {
   const [classBlock, setClassBlock] = useState("equipment_services");

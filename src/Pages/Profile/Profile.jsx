@@ -1,25 +1,26 @@
-import "./Profile.scss";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { useSelector } from "react-redux";
+
+import "./Profile.scss";
 
 export default function Profile() {
   const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
-  const [img, setImg] = useState("img");
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+
   const auth = getAuth();
   const navigate = useNavigate();
 
   const storage = getStorage();
 
-  const emailArr = useSelector((state) => state.email.email);
+  const userArr = useSelector((state) => state.user.user);
   if (email == "") {
-    emailArr.forEach((element) => {
+    userArr.forEach((element) => {
       setEmail(element.email);
       setName(element.name);
       setNumber(element.number);

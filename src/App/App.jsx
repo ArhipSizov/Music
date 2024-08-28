@@ -1,20 +1,11 @@
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import {
-  getDatabase,
-  ref,
-  set,
-  onValue,
-  get,
-  child,
-  update,
-  push,
-} from "firebase/database";
+import { useNavigate } from "react-router-dom";
+import { getDatabase, ref, onValue } from "firebase/database";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Services/store/Slice";
 
-import "./App.scss";
 import Error from "../Pages/Error/Error";
 import Register from "../Pages/Register/Register";
 import Recovery from "../Pages/Recovery/Recovery";
@@ -32,20 +23,16 @@ import Orders from "../Pages/Orders/Orders";
 import Messages from "../Pages/Messages/Messages";
 import Favorites from "../Pages/Favorites/Favorites";
 import BankCard from "../Pages/BankCard/BankCard";
-import { useNavigate } from "react-router-dom";
+
+import "./App.scss";
 
 function App() {
   const [user, setUser] = useState({});
+  const [showNavFooter, setShowNavFooter] = useState(false);
+  const [email, setIEmail] = useState("");
+
   const auth = getAuth();
   const navigate = useNavigate();
-
-  const [showNavFooter, setShowNavFooter] = useState(false);
-
-  const [email, setIEmail] = useState("");
-  const [key, setIKey] = useState();
-  const [pasvord, setPasvord] = useState();
-  const [name, setName] = useState();
-  const [number, setNumber] = useState();
 
   let data = null;
   const database = getDatabase();
@@ -55,7 +42,6 @@ function App() {
   });
 
   const dispatch = useDispatch();
-  const addTask = () => dispatch(addUser({ email, pasvord }));
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -65,35 +51,33 @@ function App() {
           email: null,
           displayName: null,
         });
-        navigate("/loading")
+        navigate("/loading");
         return;
-      } else {
-        setShowNavFooter(true);
       }
+      setShowNavFooter(true);
       setUser({
         displayName: currentUser.displayName,
         email: currentUser.email,
       });
-
       onValue(starCountRef, (snapshot) => {
         data = snapshot.val();
         const dataArr = Object.values(data.users);
         dataArr.forEach(function (item) {
           const dataEmail = item.email;
           if (currentUser.email == dataEmail && email == "") {
-            setIEmail(item.email);
-            setIKey(item.key);
-            setPasvord(item.password);
-            setName(item.name);
-            const email = item.email
-            const pasvord = item.password
-            const name = item.name
-            const number = item.number
-            const key = item.key
-            const favorites = item.favorites
-            const card = item.card
-            const rooms = item.rooms
-            dispatch(addUser({ email, pasvord, name, number, key, favorites, card, rooms }));
+            setIEmail(item.email)
+            dispatch(
+              addUser({
+                email: item.email,
+                pasvord: item.password,
+                name: item.name,
+                number: item.number,
+                key: item.key,
+                favorites: item.favorites,
+                card: item.card,
+                rooms: item.rooms,
+              })
+            );
           }
         });
       });
