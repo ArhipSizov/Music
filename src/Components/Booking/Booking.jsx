@@ -57,7 +57,7 @@ export default function Booking({ item, setShowBookingBlock }) {
     editTime(help);
   }, []);
 
-  function name() {
+  function correctCost() {
     let newCost = +costRoom;
     services.forEach((item) => {
       newCost = newCost + +item;
@@ -69,10 +69,10 @@ export default function Booking({ item, setShowBookingBlock }) {
     setCost(newCost);
   }
   setTimeout(() => {
-    name();
+    correctCost();
   }, 1);
   return (
-    <div onClick={() => name()} className="booking">
+    <div onClick={() => correctCost()} className="booking">
       {showPay && (
         <BookingPay
           cost={cost}
@@ -81,7 +81,7 @@ export default function Booking({ item, setShowBookingBlock }) {
           room={room}
         ></BookingPay>
       )}
-      <div onClick={() => setShowBookingBlock(false)} className="nav">
+      <div onClick={() => setShowBookingBlock(false)} className="booking_nav">
         <img src="/backAlt.svg" alt="" />
         <h1>Бронирование</h1>
       </div>

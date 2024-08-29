@@ -197,5 +197,3 @@ const ImageUpload = (props: IMGProps) => {
 }
  
 export default ImageUpload;
-
-//<img src={fileInput} />
