@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 import "./BookingPay.scss";
 
-export default function BookingPay({ cost, setShowPay, item, room }) {
+export default function BookingPay({ cost, setShowPay, item, room, costTime, trueDate }) {
   const [key, setKey] = useState("");
   const [card, setCard] = useState("");
 
@@ -23,14 +23,19 @@ export default function BookingPay({ cost, setShowPay, item, room }) {
 
   function updateDatabase() {
     const updates = {};
+    const trueRoom = eval("item.halls." + room + ".name")
 
     const postData = {
+      time: costTime,
+      date: trueDate,
       cost: cost,
-      room: room,
+      room: trueRoom,
       name: item.name,
+      logo: item.logo,
+      area: item.area,
+      number: item.number,
     };
-
-    updates["/users/" + key + "/rooms/" + item.name] = postData;
+    updates["/users/" + key + "/rooms/" + item.name + trueDate] = postData;
     return update(ref(database), updates);
   }
   return (
@@ -47,6 +52,18 @@ export default function BookingPay({ cost, setShowPay, item, room }) {
         </div>
       </div>
       <p className="cost">Итоговая стоимость: {cost}р.</p>
+      <div className="cost_time_end">
+        <p>Дата:</p>
+        {trueDate.map((item) => (
+          <p>{item} число,</p>
+        ))}
+      </div>
+      <div className="cost_time_end">
+        <p>Время:</p>
+        {costTime.map((item) => (
+          <p>{item}:00,</p>
+        ))}
+      </div>
       <form onSubmit={() => updateDatabase()}>
         <form>
           <p className="booking_pay_choice_p">Способ оплаты:</p>

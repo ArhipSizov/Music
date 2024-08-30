@@ -11,6 +11,7 @@ export default function Booking({ item, setShowBookingBlock }) {
   const [equipment, setEquipment] = useState([]);
   const [services, setServices] = useState([]);
   const [costTime, setCostTime] = useState([]);
+  const [trueDate, setTrueDate] = useState([]);
 
   const [time, setTime] = useState([]);
   const [showTime, setShowTime] = useState(false);
@@ -18,6 +19,7 @@ export default function Booking({ item, setShowBookingBlock }) {
   const [showPay, setShowPay] = useState(false);
 
   const [room, setRoom] = useState("Room");
+  const [button, setButton] = useState("not_button_pay");
   const [cost, setCost] = useState(0);
   const [costRoom, setCostRoom] = useState(0);
 
@@ -67,6 +69,19 @@ export default function Booking({ item, setShowBookingBlock }) {
     });
     newCost = newCost * costTime.length;
     setCost(newCost);
+    correctButton()
+  }
+  function correctButton() {
+    if (cost == 0) {
+      setButton("not_button_pay")
+    }else{
+      setButton("button_pay")
+    }
+  }
+  function setShowPayFunction() {
+    if (cost !== 0) {
+      setShowPay(true)
+    }
   }
   setTimeout(() => {
     correctCost();
@@ -78,7 +93,9 @@ export default function Booking({ item, setShowBookingBlock }) {
           cost={cost}
           setShowPay={setShowPay}
           item={item}
+          costTime={costTime}
           room={room}
+          trueDate={trueDate}
         ></BookingPay>
       )}
       <div onClick={() => setShowBookingBlock(false)} className="booking_nav">
@@ -139,6 +156,8 @@ export default function Booking({ item, setShowBookingBlock }) {
                   end={item.time_hours_end}
                   costTime={costTime}
                   setCostTime={setCostTime}
+                  setTrueDate={setTrueDate}
+                  trueDate={trueDate}
                 ></BookingTime>
               ))}
           </div>
@@ -146,7 +165,7 @@ export default function Booking({ item, setShowBookingBlock }) {
       )}
       <div className="booking_footer">
         <p>{cost}р.</p>
-        <div onClick={() => setShowPay(true)}>
+        <div className={button} onClick={() => setShowPayFunction()}>
           <p>Оплатить</p>
         </div>
       </div>

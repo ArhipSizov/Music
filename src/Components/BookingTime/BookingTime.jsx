@@ -4,7 +4,15 @@ import BookingTimeComponent from "../BookingTimeComponent/BookingTimeComponent";
 
 import "./BookingTime.scss";
 
-export default function BookingTime({ item, start, end, costTime, setCostTime }) {
+export default function BookingTime({
+  item,
+  start,
+  end,
+  costTime,
+  setCostTime,
+  setTrueDate,
+  trueDate
+}) {
   const [time, setTime] = useState([]);
   const [showTime, setShowTime] = useState(false);
 
@@ -29,8 +37,6 @@ export default function BookingTime({ item, start, end, costTime, setCostTime })
   useEffect(() => {
     if (item < 10) item = item;
 
-
-
     setDate(item);
 
     newDate.setDate(+start);
@@ -40,13 +46,16 @@ export default function BookingTime({ item, start, end, costTime, setCostTime })
     <div className="booking_time">
       <p className="data">{date} число</p>
       {showTime &&
-        time.map((item) => (
+        time.map((item2) => (
           <BookingTimeComponent
-            item={item}
+            item={item2}
             {...item}
             key={item.id}
             costTime={costTime}
             setCostTime={setCostTime}
+            setTrueDate={setTrueDate}
+            day={item}
+            trueDate={trueDate}
           ></BookingTimeComponent>
         ))}
     </div>

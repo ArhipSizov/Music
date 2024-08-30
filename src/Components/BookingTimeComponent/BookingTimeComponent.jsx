@@ -2,7 +2,14 @@ import { useState } from "react";
 
 import "./BookingTimeComponent.scss";
 
-export default function BookingTimeComponent({ item, costTime, setCostTime }) {
+export default function BookingTimeComponent({
+  item,
+  costTime,
+  setCostTime,
+  setTrueDate,
+  day,
+  trueDate,
+}) {
   const [active, setActive] = useState("booking_time_component");
 
   function functionCostTime() {
@@ -14,7 +21,23 @@ export default function BookingTimeComponent({ item, costTime, setCostTime }) {
       setActive("booking_time_component");
       newArr = newArr.filter((newArr) => newArr !== item);
     }
-    setCostTime(newArr);
+    setCostTime(newArr)
+    if (trueDate.length == 0) {
+    setTrueDate([day]);
+    }
+    let help = 0;
+    trueDate.forEach((element) => {
+      if (element == day) {
+        help = 1;
+      } else {
+        return;
+      }
+    });
+    if (help == 0) {
+      newArr = trueDate;
+      newArr.push(day);
+      setTrueDate(newArr);
+    }
   }
 
   return (

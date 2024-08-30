@@ -23,7 +23,12 @@ export default function Messages() {
     if (coment !== "" && email !== "") {
       const now = new Date();
       const num = String(dbArr.length);
-      const time = now.getHours() + ":" + now.getMinutes();
+      let time = ""
+      if (now.getMinutes() < 10) {
+        time = now.getHours() + ":0" + now.getMinutes();
+      }else{
+        time = now.getHours() + ":" + now.getMinutes();
+      }
       try {
         const docRef = await setDoc(doc(db, "coments", num), {
           email: email,
